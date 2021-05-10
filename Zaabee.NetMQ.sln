@@ -32,13 +32,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PairA", "demo\Pair\PairA\Pa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PairB", "demo\Pair\PairB\PairB.csproj", "{BEE5F92F-5E8C-4786-BDD2-C26810208657}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pusher", "demo\PushPull\Pusher\Pusher.csproj", "{23DF2522-C92E-44F0-A08D-CE74C45604A8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Worker", "demo\PushPull\Worker\Worker.csproj", "{23DF2522-C92E-44F0-A08D-CE74C45604A8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Puller", "demo\PushPull\Puller\Puller.csproj", "{4EACB3D7-031C-43D8-9600-C20A94D18EF8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ventilator", "demo\PushPull\Ventilator\Ventilator.csproj", "{4EACB3D7-031C-43D8-9600-C20A94D18EF8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Router", "demo\RouterDealer\Router\Router.csproj", "{B4222EA1-9955-4B4F-A7B3-9ADFCA345DD1}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dealer", "demo\RouterDealer\Dealer\Dealer.csproj", "{C4F38168-4099-4109-85C5-28D37CA13372}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sink", "demo\PushPull\Sink\Sink.csproj", "{EEB5708F-CA48-4E32-9FF3-6BAF8AD45EDB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,7 @@ Global
 		{4EACB3D7-031C-43D8-9600-C20A94D18EF8} = {E2A2ABC2-7AC2-47BB-94C0-D87FA2C08E72}
 		{B4222EA1-9955-4B4F-A7B3-9ADFCA345DD1} = {483C57AC-E25F-41A2-B90F-693C0A19889B}
 		{C4F38168-4099-4109-85C5-28D37CA13372} = {483C57AC-E25F-41A2-B90F-693C0A19889B}
+		{EEB5708F-CA48-4E32-9FF3-6BAF8AD45EDB} = {E2A2ABC2-7AC2-47BB-94C0-D87FA2C08E72}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C3C3CDDB-47D4-4FCB-8A80-74D43E69A099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -113,5 +116,9 @@ Global
 		{C4F38168-4099-4109-85C5-28D37CA13372}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4F38168-4099-4109-85C5-28D37CA13372}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4F38168-4099-4109-85C5-28D37CA13372}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEB5708F-CA48-4E32-9FF3-6BAF8AD45EDB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEB5708F-CA48-4E32-9FF3-6BAF8AD45EDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEB5708F-CA48-4E32-9FF3-6BAF8AD45EDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEB5708F-CA48-4E32-9FF3-6BAF8AD45EDB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

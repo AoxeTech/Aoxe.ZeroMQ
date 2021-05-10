@@ -1,4 +1,5 @@
 ﻿using System;
+using NetMQ.Sockets;
 
 namespace PairA
 {
@@ -6,7 +7,10 @@ namespace PairA
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            using (var pairSocket = new PairSocket())
+            {
+                pairSocket.Bind("tcp://*:12345");
+            }
         }
     }
 }
