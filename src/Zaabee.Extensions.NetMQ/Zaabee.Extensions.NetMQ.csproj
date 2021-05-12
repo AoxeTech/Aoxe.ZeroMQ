@@ -1,0 +1,21 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.0</TargetFramework>
+        <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <PackageVersion>2021.1.0</PackageVersion>
+        <Version>2021.1.0</Version>
+        <Authors>Mutuduxf</Authors>
+        <Company>Mutuduxf</Company>
+        <PackageTags>Zaabee NetMQ message</PackageTags>
+        <Description>Extensions for NetMQ.</Description>
+        <PackageProjectUrl>https://github.com/Mutuduxf/Zaabee.NetMQ</PackageProjectUrl>
+        <LicenseExpression>MIT</LicenseExpression>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="NetMQ" Version="4.0.1.6" />
+    </ItemGroup>
+
+</Project>

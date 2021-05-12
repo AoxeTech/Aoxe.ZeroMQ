@@ -29,7 +29,7 @@ namespace Router
                 {
                     Task.Factory.StartNew(state =>
                     {
-                        DealerSocket client = null;
+                        DealerSocket client;
                         if (!clientSocketPerThread.IsValueCreated)
                         {
                             client = new DealerSocket();

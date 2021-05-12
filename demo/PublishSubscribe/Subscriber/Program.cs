@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using NetMQ;
 using NetMQ.Sockets;
 
@@ -19,6 +20,17 @@ namespace Subscriber
 
             var topic = args[0] is "All" ? string.Empty : args[0];
             Console.WriteLine("Subscriber started for Topic : {0}", topic);
+            using (var netRt = new NetMQRuntime())
+            {
+                netRt.Run(new Subscriber().Handle(topic));
+            }
+        }
+    }
+
+    public class Subscriber
+    {
+        public async Task Handle(string topic)
+        {
             using (var subSocket = new SubscriberSocket())
             {
                 subSocket.Options.ReceiveHighWatermark = 1000;
@@ -27,10 +39,10 @@ namespace Subscriber
                 Console.WriteLine("Subscriber socket connecting...");
                 while (true)
                 {
-                    var messageTopicReceived = subSocket.ReceiveFrameString();
-                    var messageReceived = subSocket.ReceiveFrameString();
-                    Console.WriteLine($"Topic:{messageTopicReceived}");
-                    Console.WriteLine($"Message:{messageReceived}");
+                    var messageTopicReceived = await subSocket.ReceiveFrameStringAsync();
+                    var messageReceived = await subSocket.ReceiveFrameStringAsync();
+                    Console.WriteLine($"Topic:{messageTopicReceived.Item1}");
+                    Console.WriteLine($"Message:{messageReceived.Item1}");
                 }
             }
         }
