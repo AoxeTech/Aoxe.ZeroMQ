@@ -41,8 +41,8 @@ namespace Subscriber
                 {
                     var messageTopicReceived = await subSocket.ReceiveFrameStringAsync();
                     var messageReceived = await subSocket.ReceiveFrameStringAsync();
-                    Console.WriteLine($"Topic:{messageTopicReceived.Item1}");
-                    Console.WriteLine($"Message:{messageReceived.Item1}");
+                    Console.WriteLine($"Topic:[{messageTopicReceived.Item1}][{messageTopicReceived.Item2}]");
+                    Console.WriteLine($"Message:[{messageReceived.Item1}][{messageReceived.Item2}]");
                 }
             }
         }
