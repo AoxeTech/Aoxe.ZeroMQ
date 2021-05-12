@@ -2,7 +2,7 @@
 using NetMQ;
 using NetMQ.Sockets;
 
-namespace Server
+namespace Response
 {
     class Program
     {

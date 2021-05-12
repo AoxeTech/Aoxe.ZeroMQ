@@ -2,7 +2,7 @@
 using NetMQ;
 using NetMQ.Sockets;
 
-namespace Client
+namespace Request
 {
     class Program
     {

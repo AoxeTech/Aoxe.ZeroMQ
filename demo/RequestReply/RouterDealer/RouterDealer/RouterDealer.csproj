@@ -6,7 +6,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\src\Zaabee.NetMQ\Zaabee.NetMQ.csproj" />
+        <ProjectReference Include="..\..\..\..\src\Zaabee.NetMQ\Zaabee.NetMQ.csproj" />
     </ItemGroup>
 
 </Project>

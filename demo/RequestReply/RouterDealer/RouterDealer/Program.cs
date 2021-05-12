@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using NetMQ;
 using NetMQ.Sockets;
 
-namespace Router
+namespace RouterDealer
 {
     class Program
     {
