@@ -39,9 +39,9 @@ namespace Subscriber
                 Console.WriteLine("Subscriber socket connecting...");
                 while (true)
                 {
-                    var messageTopicReceived = await subSocket.ReceiveFrameStringAsync();
+                    var topicReceived = await subSocket.ReceiveFrameStringAsync();
                     var messageReceived = await subSocket.ReceiveFrameStringAsync();
-                    Console.WriteLine($"Topic:[{messageTopicReceived.Item1}][{messageTopicReceived.Item2}]");
+                    Console.WriteLine($"Topic:[{topicReceived.Item1}][{topicReceived.Item2}]");
                     Console.WriteLine($"Message:[{messageReceived.Item1}][{messageReceived.Item2}]");
                 }
             }
