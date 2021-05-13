@@ -62,6 +62,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RouterDealer", "demo\Reques
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClientServer", "demo\RequestReply\ClientServer\ClientServer\ClientServer.csproj", "{7E7EC9E4-B429-4E57-953C-09C0B5D1CD49}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScatterGather", "demo\Pipeline\ScatterGather\ScatterGather\ScatterGather.csproj", "{8780843D-73F4-4406-81C6-191FC2C0101F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -96,6 +98,7 @@ Global
 		{C99B0779-F14C-4BF3-88C1-5DF1B127018C} = {AB5B2C48-D73C-4AB9-9866-0B2E963EBA6A}
 		{F5B2B52D-AD69-423E-9BDA-D2BA1F670608} = {C99B0779-F14C-4BF3-88C1-5DF1B127018C}
 		{7E7EC9E4-B429-4E57-953C-09C0B5D1CD49} = {68627B4E-AF4C-4CF4-AFDE-5DF73E05E708}
+		{8780843D-73F4-4406-81C6-191FC2C0101F} = {ACB1BFE1-2616-43FE-B1A9-968E7EB06C5C}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C3C3CDDB-47D4-4FCB-8A80-74D43E69A099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -162,5 +165,9 @@ Global
 		{7E7EC9E4-B429-4E57-953C-09C0B5D1CD49}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7E7EC9E4-B429-4E57-953C-09C0B5D1CD49}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7E7EC9E4-B429-4E57-953C-09C0B5D1CD49}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8780843D-73F4-4406-81C6-191FC2C0101F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8780843D-73F4-4406-81C6-191FC2C0101F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8780843D-73F4-4406-81C6-191FC2C0101F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8780843D-73F4-4406-81C6-191FC2C0101F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
