@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Text;
-using System.Text.Unicode;
 using System.Threading;
 using NetMQ;
 using NetMQ.Sockets;
