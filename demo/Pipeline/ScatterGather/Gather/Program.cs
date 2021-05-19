@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using NetMQ;
 using NetMQ.Sockets;
@@ -9,11 +10,13 @@ namespace Gather
     {
         static async Task Main(string[] args)
         {
-            var name = args[0];
+            Console.WriteLine("Please input ports which want to bind :");
+            var ports = Console.ReadLine()?.Split(" ").Select(int.Parse);
             using (var gather = new GatherSocket())
             {
-                gather.Connect("tcp://localhost:6009");
-                Console.WriteLine($"{name} connect success.");
+                foreach (var port in ports)
+                    gather.Connect($"tcp://localhost:{port}");
+                Console.WriteLine($"Gather connect [{string.Join(",", ports)}] success.");
                 while (true)
                 {
                     var msg = await gather.ReceiveStringAsync();

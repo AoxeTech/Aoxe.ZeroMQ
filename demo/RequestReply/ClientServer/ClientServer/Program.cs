@@ -11,8 +11,8 @@ namespace ClientServer
         {
             using var server = new ServerSocket();
             using var client = new ClientSocket();
-            server.Bind("inproc://client-server");
-            client.Connect("inproc://client-server");
+            server.Bind("tcp://*:12345");
+            client.Connect("tcp://localhost:12345");
 
             client.Send(Encoding.UTF8.GetBytes("Hello"));
             Console.WriteLine("Client has sent \"Hello\" to server.");

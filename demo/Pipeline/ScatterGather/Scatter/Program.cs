@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using NetMQ;
 using NetMQ.Sockets;
@@ -9,13 +10,15 @@ namespace Scatter
     {
         static async Task Main(string[] args)
         {
-            Console.Write("Please input send quantity or exit : ");
-            var input = Console.ReadLine();
-            Console.WriteLine($"Input : {input}");
+            Console.WriteLine("Please input ports which want to bind :");
+            var ports = Console.ReadLine()?.Split(" ").Select(int.Parse);
             using (var scatter = new ScatterSocket())
             {
-                scatter.Bind("tcp://*:6009");
-                Console.WriteLine("Scatter bind success.");
+                foreach (var port in ports)
+                    scatter.Bind($"tcp://*:{port}");
+                Console.WriteLine($"Scatter bind [{string.Join(",", ports)}] success.");
+                Console.Write("Please input send quantity or exit : ");
+                var input = Console.ReadLine();
                 while (!string.IsNullOrWhiteSpace(input) && input is not "exit")
                 {
                     var quantity = int.Parse(input);

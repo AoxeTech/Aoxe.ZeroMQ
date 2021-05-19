@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using NetMQ;
@@ -10,23 +11,29 @@ namespace Dish
     {
         static void Main(string[] args)
         {
-            var topics = args.Any() ? args : Array.Empty<string>();
-            Console.WriteLine("Subscriber started for Topic : {0}", string.Join(",", topics));
+            Console.WriteLine("Please input the ports which want to connect :");
+            var ports = Console.ReadLine()?.Split(" ").Select(int.Parse);
+            Console.WriteLine("Please input the topics :");
+            var topics = Console.ReadLine()?.Split(" ");
+
+            Console.WriteLine($"Dish socket has bind ports [{string.Join(",", ports)}].");
+            Console.WriteLine($"Subscriber started for Topic : {string.Join(",", topics)}");
             using (var netRt = new NetMQRuntime())
             {
-                netRt.Run(new Disher().Handle(args));
+                netRt.Run(new Disher().Handle(ports, topics));
             }
         }
     }
 
     public class Disher
     {
-        public async Task Handle(params string[] topics)
+        public async Task Handle(IEnumerable<int> ports,IEnumerable<string> topics)
         {
             using (var dishSocket = new DishSocket())
             {
                 dishSocket.Options.ReceiveHighWatermark = 1000;
-                dishSocket.Connect("tcp://localhost:12345");
+                foreach (var port in ports)
+                    dishSocket.Connect($"tcp://localhost:{port}");
                 if (topics is not null)
                     foreach (var topic in topics)
                         dishSocket.Join(topic);
