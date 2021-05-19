@@ -4,7 +4,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{93131734-DF3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "tests", "tests", "{0FAF659F-E5FE-44FD-999A-3C90E22D19D2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaabee.NetMQ", "src\Zaabee.NetMQ\Zaabee.NetMQ.csproj", "{C3C3CDDB-47D4-4FCB-8A80-74D43E69A099}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaabee.ZeroMQ", "src\Zaabee.ZeroMQ\Zaabee.ZeroMQ.csproj", "{C3C3CDDB-47D4-4FCB-8A80-74D43E69A099}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "demo", "demo", "{8B31AA0C-BE48-4986-80FA-CA4C5969C9D7}"
 EndProject
@@ -14,11 +14,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishSubscribe", "Publish
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestReply", "RequestReply", "{AB5B2C48-D73C-4AB9-9866-0B2E963EBA6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaabee.NetMQ.Abstraction", "src\Zaabee.NetMQ.Abstraction\Zaabee.NetMQ.Abstraction.csproj", "{3962F2A8-85A8-40D6-817A-E5E2B84BEB0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaabee.ZeroMQ.Abstraction", "src\Zaabee.ZeroMQ.Abstraction\Zaabee.ZeroMQ.Abstraction.csproj", "{3962F2A8-85A8-40D6-817A-E5E2B84BEB0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PairServer", "demo\Pair\PairServer\PairServer.csproj", "{0E61F81B-4AA3-43A0-A137-B4DA1D8367D7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaabee.Extensions.NetMQ", "src\Zaabee.Extensions.NetMQ\Zaabee.Extensions.NetMQ.csproj", "{C364DA0C-1D72-4975-8527-D5830FD7B702}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaabee.Extensions.ZeroMQ", "src\Zaabee.Extensions.ZeroMQ\Zaabee.Extensions.ZeroMQ.csproj", "{C364DA0C-1D72-4975-8527-D5830FD7B702}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PairClient", "demo\Pair\PairClient\PairClient.csproj", "{7F035537-3E17-4DF5-96E7-A1F7BF8075C6}"
 EndProject
@@ -76,7 +76,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "demo\RequestReply
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "demo\RequestReply\ClientServer\Server\Server.csproj", "{071EBB44-9810-4C99-97C6-F889374DC30D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaabee.NetMQ.Serializer.Abstraction", "src\Zaabee.NetMQ.Serializer.Abstraction\Zaabee.NetMQ.Serializer.Abstraction.csproj", "{76D2D7E1-EBCF-4746-A684-CDF400DC22DF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaabee.ZeroMQ.Serializer.Abstraction", "src\Zaabee.ZeroMQ.Serializer.Abstraction\Zaabee.ZeroMQ.Serializer.Abstraction.csproj", "{76D2D7E1-EBCF-4746-A684-CDF400DC22DF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

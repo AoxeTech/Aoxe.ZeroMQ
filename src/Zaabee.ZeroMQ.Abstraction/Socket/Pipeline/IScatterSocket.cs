@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Zaabee.NetMQ.Abstraction.Socket.Pipeline
+namespace Zaabee.ZeroMQ.Abstraction.Socket.Pipeline
 {
     public interface IScatterSocket
     {

@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Zaabee.NetMQ.Abstraction.Socket.PubSub
+namespace Zaabee.ZeroMQ.Abstraction.Socket.PubSub
 {
     public interface IRadioSocket
     {

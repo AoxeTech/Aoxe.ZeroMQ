@@ -4,7 +4,7 @@
 // using NetMQ;
 // using NetMQ.Sockets;
 //
-// namespace Zaabee.NetMQ
+// namespace Zaabee.ZeroMQ
 // {
 //     public partial class ZaabeeNetMqClient
 //     {

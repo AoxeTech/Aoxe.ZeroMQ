@@ -1,4 +1,4 @@
-﻿namespace Zaabee.NetMQ.Serializer.Abstraction
+﻿namespace Zaabee.ZeroMQ.Serializer.Abstraction
 {
     public interface ISerializer
     {
