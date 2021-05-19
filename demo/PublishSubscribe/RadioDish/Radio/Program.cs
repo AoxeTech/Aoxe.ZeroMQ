@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Diagnostics;
 using System.Linq;
+using System.Threading.Tasks;
 using NetMQ;
 using NetMQ.Sockets;
 
@@ -8,7 +9,7 @@ namespace Radio
 {
     class Program
     {
-        static void Main(string[] args)
+        static async Task Main(string[] args)
         {
             var rand = new Random();
             Console.WriteLine("Please input the ports which want to bind :");
@@ -37,7 +38,7 @@ namespace Radio
                         var topic = topics[randomizedTopic];
                         var msg = $"{topic} msg-{i}";
                         Console.WriteLine("Sending message : {0}", msg);
-                        radioSocket.Send(topic, msg);
+                        await radioSocket.SendAsync(topic, msg);
                     }
 
                     sw.Stop();

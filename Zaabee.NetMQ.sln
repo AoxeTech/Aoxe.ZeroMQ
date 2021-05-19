@@ -76,6 +76,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "demo\RequestReply
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server", "demo\RequestReply\ClientServer\Server\Server.csproj", "{071EBB44-9810-4C99-97C6-F889374DC30D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaabee.NetMQ.Serializer.Abstraction", "src\Zaabee.NetMQ.Serializer.Abstraction\Zaabee.NetMQ.Serializer.Abstraction.csproj", "{76D2D7E1-EBCF-4746-A684-CDF400DC22DF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -117,6 +119,7 @@ Global
 		{04DE7AC6-3BEB-48F2-A36A-5ED8347C300D} = {738C0B76-CEA6-49BF-AE5E-5B6F99D1AC5C}
 		{16AE2502-1D6D-4050-A2ED-D2EEA0A728BB} = {68627B4E-AF4C-4CF4-AFDE-5DF73E05E708}
 		{071EBB44-9810-4C99-97C6-F889374DC30D} = {68627B4E-AF4C-4CF4-AFDE-5DF73E05E708}
+		{76D2D7E1-EBCF-4746-A684-CDF400DC22DF} = {93131734-DF3F-4F9F-AF15-ADD283EDE765}
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{C3C3CDDB-47D4-4FCB-8A80-74D43E69A099}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -211,5 +214,9 @@ Global
 		{071EBB44-9810-4C99-97C6-F889374DC30D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{071EBB44-9810-4C99-97C6-F889374DC30D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{071EBB44-9810-4C99-97C6-F889374DC30D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{76D2D7E1-EBCF-4746-A684-CDF400DC22DF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{76D2D7E1-EBCF-4746-A684-CDF400DC22DF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{76D2D7E1-EBCF-4746-A684-CDF400DC22DF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{76D2D7E1-EBCF-4746-A684-CDF400DC22DF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -1,10 +1,9 @@
 using System.Threading.Tasks;
 
-namespace Zaabee.NetMQ.Abstraction
+namespace Zaabee.NetMQ.Abstraction.Socket.RequestReply
 {
-    public interface IPair
+    public interface IServerSocket
     {
-        void Send<T>(T message);
         T Receive<T>();
         Task<T> ReceiveAsync<T>();
     }
