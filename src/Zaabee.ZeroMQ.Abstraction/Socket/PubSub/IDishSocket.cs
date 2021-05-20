@@ -4,10 +4,8 @@ namespace Zaabee.ZeroMQ.Abstraction.Socket.PubSub
 {
     public interface IDishSocket
     {
-        void Subscribe<T>();
-        void Subscribe<T>(string topic);
+        (string, T) Subscribe<T>();
 
-        Task SubscribeAsync<T>();
-        Task SubscribeAsync<T>(string topic);
+        Task<(string, T)> SubscribeAsync<T>();
     }
 }

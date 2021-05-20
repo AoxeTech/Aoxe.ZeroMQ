@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using NetMQ;
-using NetMQ.Sockets;
+using Contracts;
+using Zaabee.ZeroMQ;
+using Zaabee.ZeroMQ.Jil;
 
 namespace Scatter
 {
@@ -12,10 +13,10 @@ namespace Scatter
         {
             Console.WriteLine("Please input ports which want to bind :");
             var ports = Console.ReadLine()?.Split(" ").Select(int.Parse);
-            using (var scatter = new ScatterSocket())
+            using (var scatter = new ZaabeeZeroMqHub(new Serializer()))
             {
                 foreach (var port in ports)
-                    scatter.Bind($"tcp://*:{port}");
+                    scatter.ScatterBind($"tcp://*:{port}");
                 Console.WriteLine($"Scatter bind [{string.Join(",", ports)}] success.");
                 Console.Write("Please input send quantity or exit : ");
                 var input = Console.ReadLine();
@@ -23,7 +24,8 @@ namespace Scatter
                 {
                     var quantity = int.Parse(input);
                     for (var i = 0; i < quantity; i++)
-                        await scatter.SendAsync($"Scatter sent {i}");
+                        await scatter.PushAsync(new User
+                            {Id = Guid.NewGuid(), Name = "Alice", Age = 20, CreateTime = DateTime.Now});
                     Console.WriteLine("Please input send quantity or exit : ");
                     input = Console.ReadLine();
                 }

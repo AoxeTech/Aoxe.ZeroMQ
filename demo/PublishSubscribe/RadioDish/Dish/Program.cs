@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Contracts;
 using NetMQ;
-using NetMQ.Sockets;
+using Zaabee.Jil;
+using Zaabee.ZeroMQ;
+using Zaabee.ZeroMQ.Jil;
 
 namespace Dish
 {
@@ -13,7 +16,7 @@ namespace Dish
         {
             Console.WriteLine("Please input the ports which want to connect :");
             var ports = Console.ReadLine()?.Split(" ").Select(int.Parse);
-            Console.WriteLine("Please input the topics :");
+            Console.WriteLine("Please input the groups :");
             var topics = Console.ReadLine()?.Split(" ");
 
             Console.WriteLine($"Dish socket has bind ports [{string.Join(",", ports)}].");
@@ -27,23 +30,23 @@ namespace Dish
 
     public class Disher
     {
-        public async Task Handle(IEnumerable<int> ports,IEnumerable<string> topics)
+        public async Task Handle(IEnumerable<int> ports, IEnumerable<string> topics)
         {
-            using (var dishSocket = new DishSocket())
+            using (var msgHub = new ZaabeeZeroMqHub(new Serializer()))
             {
-                dishSocket.Options.ReceiveHighWatermark = 1000;
+                msgHub.DishSocketOptions.ReceiveHighWatermark = 1000;
                 foreach (var port in ports)
-                    dishSocket.Connect($"tcp://localhost:{port}");
+                    msgHub.DishConnect($"tcp://localhost:{port}");
                 if (topics is not null)
                     foreach (var topic in topics)
-                        dishSocket.Join(topic);
+                        msgHub.DishJoin(topic);
 
                 Console.WriteLine("Subscriber socket connecting...");
                 while (true)
                 {
-                    var (group, message) = await dishSocket.ReceiveStringAsync();
+                    var (group, message) = await msgHub.SubscribeAsync<User>();
                     Console.WriteLine($"Topic:{group}");
-                    Console.WriteLine($"Message:{message}");
+                    Console.WriteLine($"Message:{message.ToJson()}");
                 }
             }
         }

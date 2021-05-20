@@ -6,7 +6,9 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <ProjectReference Include="..\..\..\..\src\Zaabee.ZeroMQ.Jil\Zaabee.ZeroMQ.Jil.csproj" />
         <ProjectReference Include="..\..\..\..\src\Zaabee.ZeroMQ\Zaabee.ZeroMQ.csproj" />
+        <ProjectReference Include="..\..\..\Contracts\Contracts.csproj" />
     </ItemGroup>
 
 </Project>

@@ -4,7 +4,9 @@ namespace Zaabee.ZeroMQ.Abstraction.Socket.RequestReply
 {
     public interface IClientSocket
     {
-        void Send<T>(T message);
-        Task SendAsync<T>(T message);
+        void ClientSend<T>(T message);
+        Task ClientSendAsync<T>(T message);
+        T ClientReceive<T>();
+        Task<T> ClientReceiveAsync<T>();
     }
 }

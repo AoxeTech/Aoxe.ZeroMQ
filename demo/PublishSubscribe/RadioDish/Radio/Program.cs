@@ -2,8 +2,10 @@
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using NetMQ;
-using NetMQ.Sockets;
+using Contracts;
+using Zaabee.Jil;
+using Zaabee.ZeroMQ;
+using Zaabee.ZeroMQ.Jil;
 
 namespace Radio
 {
@@ -14,17 +16,17 @@ namespace Radio
             var rand = new Random();
             Console.WriteLine("Please input the ports which want to bind :");
             var ports = Console.ReadLine()?.Split(" ").Select(int.Parse);
-            using (var radioSocket = new RadioSocket())
+            using (var msgHub = new ZaabeeZeroMqHub(new Serializer()))
             {
                 Console.WriteLine("Publisher socket binding...");
-                radioSocket.Options.SendHighWatermark = 1000;
+                msgHub.RadioSocketOptions.SendHighWatermark = 1000;
                 foreach (var port in ports)
                 {
-                    radioSocket.Bind($"tcp://*:{port}");
+                    msgHub.RadioBind($"tcp://*:{port}");
                     Console.WriteLine($"Radio socket has bind port [{port}].");
                 }
 
-                Console.Write("Please input the topics :");
+                Console.Write("Please input the groups :");
                 var topics = Console.ReadLine()?.Split(" ").ToList();
                 Console.Write("Please input the publish quantity or exist:");
                 var input = Console.ReadLine();
@@ -36,9 +38,14 @@ namespace Radio
                     {
                         var randomizedTopic = rand.Next(0, topics.Count);
                         var topic = topics[randomizedTopic];
-                        var msg = $"{topic} msg-{i}";
-                        Console.WriteLine("Sending message : {0}", msg);
-                        await radioSocket.SendAsync(topic, msg);
+                        var msg = new User
+                        {
+                            Id = Guid.NewGuid(),
+                            Name = "Alice",
+                            CreateTime = DateTime.Now
+                        };
+                        Console.WriteLine($"Sending message : {msg.ToJson()}");
+                        await msgHub.PublishAsync(topic, msg);
                     }
 
                     sw.Stop();

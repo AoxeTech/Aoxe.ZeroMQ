@@ -16,13 +16,8 @@
 
     <ItemGroup>
         <PackageReference Include="NetMQ" Version="4.0.1.6" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Socket\ExclusivePair" />
-      <Folder Include="Socket\Pipeline" />
-      <Folder Include="Socket\PubSub" />
-      <Folder Include="Socket\RequestReply" />
+        <PackageReference Include="Zaabee.ZeroMQ.Serializer.Abstraction" Version="2021.1.0" />
+        <PackageReference Include="Zaabee.ZeroMQ.Abstraction" Version="2021.1.0" />
     </ItemGroup>
 
 </Project>

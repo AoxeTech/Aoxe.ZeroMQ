@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
-using NetMQ;
-using NetMQ.Sockets;
+using Contracts;
+using Zaabee.Jil;
+using Zaabee.ZeroMQ;
+using Zaabee.ZeroMQ.Jil;
 
 namespace Gather
 {
@@ -12,15 +14,15 @@ namespace Gather
         {
             Console.WriteLine("Please input ports which want to bind :");
             var ports = Console.ReadLine()?.Split(" ").Select(int.Parse);
-            using (var gather = new GatherSocket())
+            using (var gather = new ZaabeeZeroMqHub(new Serializer()))
             {
                 foreach (var port in ports)
-                    gather.Connect($"tcp://localhost:{port}");
+                    gather.GatherConnect($"tcp://localhost:{port}");
                 Console.WriteLine($"Gather connect [{string.Join(",", ports)}] success.");
                 while (true)
                 {
-                    var msg = await gather.ReceiveStringAsync();
-                    Console.WriteLine($"Receive message [{msg}] on {DateTime.Now}");
+                    var msg = await gather.PullAsync<User>();
+                    Console.WriteLine($"Receive message [{msg.ToJson()}] on {DateTime.Now}");
                 }
             }
         }

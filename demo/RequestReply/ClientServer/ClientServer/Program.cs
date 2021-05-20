@@ -1,7 +1,8 @@
 ﻿using System;
-using System.Text;
-using NetMQ;
-using NetMQ.Sockets;
+using Contracts;
+using Zaabee.Jil;
+using Zaabee.ZeroMQ;
+using Zaabee.ZeroMQ.Jil;
 
 namespace ClientServer
 {
@@ -9,22 +10,30 @@ namespace ClientServer
     {
         static void Main(string[] args)
         {
-            using var server = new ServerSocket();
-            using var client = new ClientSocket();
-            server.Bind("tcp://*:12345");
-            client.Connect("tcp://localhost:12345");
+            using var msgHub = new ZaabeeZeroMqHub(new Serializer());
+            msgHub.ServerBind("tcp://*:12345");
+            msgHub.ClientConnect("tcp://localhost:12345");
 
-            client.Send(Encoding.UTF8.GetBytes("Hello"));
-            Console.WriteLine("Client has sent \"Hello\" to server.");
-            
-            var (routingId, clientMsg) = server.ReceiveBytes();
-            
-            Console.WriteLine($"Server received \"{Encoding.UTF8.GetString(clientMsg)}\" from client which routing Id [{routingId}]");
+            var user = new User
+            {
+                Id = Guid.NewGuid(),
+                Name = "Alice",
+                CreateTime = DateTime.Now
+            };
+            msgHub.ClientSend(user);
+            Console.WriteLine($"Client sent [{user.ToJson()}] to server.");
 
-            server.Send(routingId, "World");
-            Console.WriteLine($"Server sent \"World\" to routing Id [{routingId}]");
-            var serverMsg = client.ReceiveString();
-            Console.WriteLine($"Client received \"{serverMsg}\" from server.");
+            var (routingId, clientMsg) = msgHub.ServerReceive<User>();
+
+            Console.WriteLine(
+                $"Server received \"{clientMsg.ToJson()}\" from client which routing Id is [{routingId}]");
+
+            clientMsg.Name = "Bob";
+            msgHub.ServerSend(routingId, clientMsg);
+
+            Console.WriteLine($"Server sent [{clientMsg.ToJson()}] to routing Id [{routingId}]");
+            var serverMsg = msgHub.ClientReceive<User>();
+            Console.WriteLine($"Client received \"{serverMsg.ToJson()}\" from server.");
             Console.ReadLine();
         }
     }
