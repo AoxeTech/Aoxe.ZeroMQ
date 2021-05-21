@@ -1,4 +1,3 @@
-using NetMQ;
 using NetMQ.Sockets;
 using Zaabee.ZeroMQ.Abstraction;
 using Zaabee.ZeroMQ.Serializer.Abstraction;
@@ -8,6 +7,7 @@ namespace Zaabee.ZeroMQ
     public partial class ZaabeeZeroMqHub : IZaabeeZeroMqHub
     {
         private readonly ISerializer _serializer;
+
         private readonly ServerSocket _serverSocket = new();
         private readonly ClientSocket _clientSocket = new();
         private readonly ScatterSocket _scatterSocket = new();
@@ -38,26 +38,47 @@ namespace Zaabee.ZeroMQ
                 DishConnect(dishConnectAddress);
         }
 
-        public void ServerBind(string address) =>
-            _serverSocket.Bind(address);
+        public void ServerBind(params string[] addresses)
+        {
+            foreach (var address in addresses)
+                _serverSocket.Bind(address);
+        }
 
-        public void ClientConnect(string address) =>
-            _clientSocket.Connect(address);
+        public void ClientConnect(params string[] addresses)
+        {
+            foreach (var address in addresses)
+                _clientSocket.Connect(address);
+        }
 
-        public void ScatterBind(string address) =>
-            _scatterSocket.Bind(address);
+        public void ScatterBind(params string[] addresses)
+        {
+            foreach (var address in addresses)
+                _scatterSocket.Bind(address);
+        }
 
-        public void GatherConnect(string address) =>
-            _gatherSocket.Connect(address);
+        public void GatherConnect(params string[] addresses)
+        {
+            foreach (var address in addresses)
+                _gatherSocket.Connect(address);
+        }
 
-        public void RadioBind(string address) =>
-            _radioSocket.Bind(address);
+        public void RadioBind(params string[] addresses)
+        {
+            foreach (var address in addresses)
+                _radioSocket.Bind(address);
+        }
 
-        public void DishConnect(string address) =>
-            _dishSocket.Connect(address);
+        public void DishConnect(params string[] addresses)
+        {
+            foreach (var address in addresses)
+                _dishSocket.Connect(address);
+        }
 
-        public void DishJoin(string group) =>
-            _dishSocket.Join(group);
+        public void DishJoin(params string[] groups)
+        {
+            foreach (var group in groups)
+                _dishSocket.Join(group);
+        }
 
         public void Dispose()
         {
@@ -67,8 +88,6 @@ namespace Zaabee.ZeroMQ
             _gatherSocket.Dispose();
             _radioSocket.Dispose();
             _dishSocket.Dispose();
-
-            NetMQConfig.Cleanup();
         }
     }
 }
