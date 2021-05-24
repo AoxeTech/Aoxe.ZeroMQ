@@ -64,28 +64,28 @@ namespace Zaabee.ZeroMQ.Test
 
             modelsGroupA.ForEach(_ =>
             {
-                var (group, model) = subGroupA.Subscribe<TestModel>();
+                var (group, model) = subGroupA.DishReceive<TestModel>();
                 Assert.Equal("GroupA", group);
                 _groupA.Add(model);
             });
 
             modelsGroupB.ForEach(_ =>
             {
-                var (group, model) = subGroupB.Subscribe<TestModel>();
+                var (group, model) = subGroupB.DishReceive<TestModel>();
                 Assert.Equal("GroupB", group);
                 _groupB.Add(model);
             });
 
             modelsGroupDefault.ForEach(_ =>
             {
-                var (group, model) = subGroupDefault.Subscribe<TestModel>();
+                var (group, model) = subGroupDefault.DishReceive<TestModel>();
                 Assert.Equal(groupDefault, group);
                 _groupDefault.Add(model);
             });
 
             for (var i = 0; i < modelsGroupA.Count + modelsGroupB.Count; i++)
             {
-                var (group, model) = subGroupAll.Subscribe<TestModel>();
+                var (group, model) = subGroupAll.DishReceive<TestModel>();
                 _groupAll.Add(model);
             }
 

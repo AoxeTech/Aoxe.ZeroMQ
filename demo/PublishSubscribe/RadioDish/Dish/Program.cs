@@ -44,7 +44,7 @@ namespace Dish
                 Console.WriteLine("Subscriber socket connecting...");
                 while (true)
                 {
-                    var (group, message) = await msgHub.SubscribeAsync<User>();
+                    var (group, message) = await msgHub.DishReceiveAsync<User>();
                     Console.WriteLine($"Topic:{group}");
                     Console.WriteLine($"Message:{message.ToJson()}");
                 }

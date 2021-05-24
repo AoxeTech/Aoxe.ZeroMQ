@@ -59,28 +59,28 @@ namespace Zaabee.ZeroMQ.Test
 
             modelsGroupA.ForEach(async _ =>
             {
-                var (group, model) = await subGroupA.SubscribeAsync<TestModel>();
+                var (group, model) = await subGroupA.DishReceiveAsync<TestModel>();
                 Assert.Equal("GroupA", group);
                 _groupA.Add(model);
             });
 
             modelsGroupB.ForEach(async _ =>
             {
-                var (group, model) = await subGroupB.SubscribeAsync<TestModel>();
+                var (group, model) = await subGroupB.DishReceiveAsync<TestModel>();
                 Assert.Equal("GroupB", group);
                 _groupB.Add(model);
             });
 
             modelsGroupDefault.ForEach(async _ =>
             {
-                var (group, model) = await subGroupDefault.SubscribeAsync<TestModel>();
+                var (group, model) = await subGroupDefault.DishReceiveAsync<TestModel>();
                 Assert.Equal(groupDefault, group);
                 _groupDefault.Add(model);
             });
 
             for (var i = 0; i < modelsGroupA.Count + modelsGroupB.Count; i++)
             {
-                var (group, model) = await subGroupAll.SubscribeAsync<TestModel>();
+                var (group, model) = await subGroupAll.DishReceiveAsync<TestModel>();
                 _groupAll.Add(model);
             }
 
