@@ -4,8 +4,8 @@ namespace Zaabee.ZeroMQ.Abstraction.Socket.PubSub
 {
     public interface IDishSocket
     {
-        (string, T) Subscribe<T>();
+        (string, T) DishReceive<T>();
 
-        Task<(string, T)> SubscribeAsync<T>();
+        Task<(string, T)> DishReceiveAsync<T>();
     }
 }
