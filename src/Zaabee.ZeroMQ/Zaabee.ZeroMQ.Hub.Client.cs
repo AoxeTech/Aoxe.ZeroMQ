@@ -6,6 +6,7 @@ namespace Zaabee.ZeroMQ
     public partial class ZaabeeZeroMqHub
     {
         public ThreadSafeSocketOptions ClientSocketOptions => _clientSocket.Options;
+
         public void ClientSend<T>(T message) =>
             _clientSocket.Send(_serializer.Serialize(message));
 
