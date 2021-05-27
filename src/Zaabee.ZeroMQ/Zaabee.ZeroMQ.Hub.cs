@@ -1,6 +1,6 @@
 using NetMQ.Sockets;
 using Zaabee.ZeroMQ.Abstraction;
-using Zaabee.ZeroMQ.Serializer.Abstraction;
+using Zaabee.Serializer.Abstraction;
 
 namespace Zaabee.ZeroMQ
 {

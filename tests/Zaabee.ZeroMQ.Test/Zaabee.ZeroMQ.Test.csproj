@@ -17,10 +17,10 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
+        <PackageReference Include="Zaabee.Jil" Version="2021.2.0" />
     </ItemGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\..\src\Zaabee.ZeroMQ.Jil\Zaabee.ZeroMQ.Jil.csproj" />
       <ProjectReference Include="..\..\src\Zaabee.ZeroMQ\Zaabee.ZeroMQ.csproj" />
       <ProjectReference Include="..\TestModels\TestModels.csproj" />
     </ItemGroup>

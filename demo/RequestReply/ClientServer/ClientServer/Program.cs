@@ -2,7 +2,6 @@
 using Contracts;
 using Zaabee.Jil;
 using Zaabee.ZeroMQ;
-using Zaabee.ZeroMQ.Jil;
 
 namespace ClientServer
 {

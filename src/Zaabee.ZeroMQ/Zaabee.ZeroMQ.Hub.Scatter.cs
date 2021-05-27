@@ -8,9 +8,9 @@ namespace Zaabee.ZeroMQ
         public ThreadSafeSocketOptions ScatterSocketOptions => _scatterSocket.Options;
 
         public void Push<T>(T message) =>
-            _scatterSocket.Send(_serializer.Serialize(message));
+            _scatterSocket.Send(_serializer.SerializeToBytes(message));
 
         public async Task PushAsync<T>(T message) =>
-            await _scatterSocket.SendAsync(_serializer.Serialize(message));
+            await _scatterSocket.SendAsync(_serializer.SerializeToBytes(message));
     }
 }

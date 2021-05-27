@@ -4,9 +4,12 @@
         <OutputType>Exe</OutputType>
         <TargetFramework>net5.0</TargetFramework>
     </PropertyGroup>
+    
+    <ItemGroup>
+        <PackageReference Include="Zaabee.Jil" Version="2021.2.0" />
+    </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\..\src\Zaabee.ZeroMQ.Jil\Zaabee.ZeroMQ.Jil.csproj" />
         <ProjectReference Include="..\..\..\..\src\Zaabee.ZeroMQ\Zaabee.ZeroMQ.csproj" />
         <ProjectReference Include="..\..\..\Contracts\Contracts.csproj" />
     </ItemGroup>

@@ -6,7 +6,6 @@ using Contracts;
 using NetMQ;
 using Zaabee.Jil;
 using Zaabee.ZeroMQ;
-using Zaabee.ZeroMQ.Jil;
 
 namespace Dish
 {

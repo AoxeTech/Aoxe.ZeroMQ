@@ -8,9 +8,9 @@ namespace Zaabee.ZeroMQ
         public ThreadSafeSocketOptions GatherSocketOptions => _gatherSocket.Options;
 
         public T Pull<T>() =>
-            _serializer.Deserialize<T>(_gatherSocket.ReceiveBytes());
+            _serializer.DeserializeFromBytes<T>(_gatherSocket.ReceiveBytes());
 
         public async Task<T> PullAsync<T>() =>
-            _serializer.Deserialize<T>(await _gatherSocket.ReceiveBytesAsync());
+            _serializer.DeserializeFromBytes<T>(await _gatherSocket.ReceiveBytesAsync());
     }
 }
