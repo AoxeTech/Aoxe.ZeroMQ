@@ -14,7 +14,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishSubscribe", "Publish
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RequestReply", "RequestReply", "{AB5B2C48-D73C-4AB9-9866-0B2E963EBA6A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaabee.ZeroMQ.Abstraction", "src\Zaabee.ZeroMQ.Abstraction\Zaabee.ZeroMQ.Abstraction.csproj", "{3962F2A8-85A8-40D6-817A-E5E2B84BEB0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zaabee.ZeroMQ.Abstractions", "src\Zaabee.ZeroMQ.Abstractions\Zaabee.ZeroMQ.Abstractions.csproj", "{3962F2A8-85A8-40D6-817A-E5E2B84BEB0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PairServer", "demo\Pair\PairServer\PairServer.csproj", "{0E61F81B-4AA3-43A0-A137-B4DA1D8367D7}"
 EndProject

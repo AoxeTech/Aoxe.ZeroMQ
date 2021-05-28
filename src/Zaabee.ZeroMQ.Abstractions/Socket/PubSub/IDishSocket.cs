@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Zaabee.ZeroMQ.Abstraction.Socket.PubSub
+namespace Zaabee.ZeroMQ.Abstractions.Socket.PubSub
 {
     public interface IDishSocket
     {

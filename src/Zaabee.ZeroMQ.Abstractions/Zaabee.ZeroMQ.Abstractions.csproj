@@ -15,7 +15,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <Folder Include="Socket" />
+        <Folder Include="Socket" />
     </ItemGroup>
 
 </Project>

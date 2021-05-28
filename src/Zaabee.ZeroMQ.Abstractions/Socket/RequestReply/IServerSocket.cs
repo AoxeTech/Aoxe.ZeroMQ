@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Zaabee.ZeroMQ.Abstraction.Socket.RequestReply
+namespace Zaabee.ZeroMQ.Abstractions.Socket.RequestReply
 {
     public interface IServerSocket
     {

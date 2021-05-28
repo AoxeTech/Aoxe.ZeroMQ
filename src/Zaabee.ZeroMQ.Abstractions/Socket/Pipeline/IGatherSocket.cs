@@ -1,6 +1,6 @@
 using System.Threading.Tasks;
 
-namespace Zaabee.ZeroMQ.Abstraction.Socket.Pipeline
+namespace Zaabee.ZeroMQ.Abstractions.Socket.Pipeline
 {
     public interface IGatherSocket
     {
