@@ -6,7 +6,7 @@ namespace Zaabee.ZeroMQ
 {
     public partial class ZaabeeZeroMqHub : IZaabeeZeroMqHub
     {
-        private readonly ISerializer _serializer;
+        private readonly IBytesSerializer _serializer;
 
         private readonly ServerSocket _serverSocket = new();
         private readonly ClientSocket _clientSocket = new();
@@ -15,7 +15,7 @@ namespace Zaabee.ZeroMQ
         private readonly RadioSocket _radioSocket = new();
         private readonly DishSocket _dishSocket = new();
 
-        public ZaabeeZeroMqHub(ISerializer serializer,
+        public ZaabeeZeroMqHub(IBytesSerializer serializer,
             string serverBindAddress = null,
             string clientConnectAddress = null,
             string scatterBindAddress = null,

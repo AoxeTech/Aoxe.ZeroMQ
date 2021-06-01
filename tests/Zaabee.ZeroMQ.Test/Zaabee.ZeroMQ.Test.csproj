@@ -17,7 +17,7 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Zaabee.Jil" Version="2021.3.0" />
+        <PackageReference Include="Zaabee.Jil" Version="2021.4.0" />
     </ItemGroup>
 
     <ItemGroup>
