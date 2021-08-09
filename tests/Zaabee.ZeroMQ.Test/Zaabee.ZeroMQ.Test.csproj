@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFrameworks>net48;netcoreapp2.1;netcoreapp3.1;net5.0</TargetFrameworks>
+        <TargetFrameworks>net48;netcoreapp3.1;net5.0</TargetFrameworks>
         <IsPackable>false</IsPackable>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
@@ -13,11 +13,11 @@
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="coverlet.collector" Version="3.0.3">
+        <PackageReference Include="coverlet.collector" Version="3.1.0">
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
             <PrivateAssets>all</PrivateAssets>
         </PackageReference>
-        <PackageReference Include="Zaabee.Jil" Version="2021.4.2" />
+        <PackageReference Include="Zaabee.Jil" Version="2021.4.3" />
     </ItemGroup>
 
     <ItemGroup>
