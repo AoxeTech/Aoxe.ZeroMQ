@@ -4,7 +4,7 @@ using Zaabee.Serializer.Abstractions;
 
 namespace Zaabee.ZeroMQ
 {
-    public partial class ZaabeeZeroMqHub : IZaabeeZeroMqHub
+    public partial class ZaabeeZeroMessageBus : IZaabeeZeroMessageBus
     {
         private readonly IBytesSerializer _serializer;
 
@@ -15,7 +15,7 @@ namespace Zaabee.ZeroMQ
         private readonly RadioSocket _radioSocket = new();
         private readonly DishSocket _dishSocket = new();
 
-        public ZaabeeZeroMqHub(IBytesSerializer serializer,
+        public ZaabeeZeroMessageBus(IBytesSerializer serializer,
             string serverBindAddress = null,
             string clientConnectAddress = null,
             string scatterBindAddress = null,

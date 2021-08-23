@@ -3,7 +3,7 @@ using NetMQ;
 
 namespace Zaabee.ZeroMQ
 {
-    public partial class ZaabeeZeroMqHub
+    public partial class ZaabeeZeroMessageBus
     {
         public ThreadSafeSocketOptions GatherSocketOptions => _gatherSocket.Options;
 

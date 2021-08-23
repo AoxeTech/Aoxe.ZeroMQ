@@ -3,17 +3,17 @@ using Xunit;
 
 namespace Zaabee.ZeroMQ.Test
 {
-    public partial class ZaabeeZeroMqHubTest
+    public partial class ZaabeeZeroMessageBusTest
     {
         [Fact]
         public void ReqRepTest()
         {
             using var server =
-                new ZaabeeZeroMqHub(new Jil.Serializer(), serverBindAddress: "inproc://test-client-server");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), serverBindAddress: "inproc://test-client-server");
             using var clientA =
-                new ZaabeeZeroMqHub(new Jil.Serializer(), clientConnectAddress: "inproc://test-client-server");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), clientConnectAddress: "inproc://test-client-server");
             using var clientB =
-                new ZaabeeZeroMqHub(new Jil.Serializer(), clientConnectAddress: "inproc://test-client-server");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), clientConnectAddress: "inproc://test-client-server");
 
             var modelA = TestModelFactory.Create();
             var modelB = TestModelFactory.Create();

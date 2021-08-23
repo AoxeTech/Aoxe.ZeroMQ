@@ -5,12 +5,12 @@ using Xunit;
 
 namespace Zaabee.ZeroMQ.Test
 {
-    public partial class ZaabeeZeroMqHubTest
+    public partial class ZaabeeZeroMessageBusTest
     {
         [Fact]
         public void OptionsTest()
         {
-            var mqHub = new ZaabeeZeroMqHub(new Jil.Serializer());
+            var mqHub = new ZaabeeZeroMessageBus(new Jil.Serializer());
             Assert.NotNull(mqHub.ClientSocketOptions);
             Assert.NotNull(mqHub.ServerSocketOptions);
             Assert.NotNull(mqHub.ScatterSocketOptions);

@@ -5,9 +5,8 @@ using Zaabee.ZeroMQ.Abstractions.Socket.RequestReply;
 
 namespace Zaabee.ZeroMQ.Abstractions
 {
-    public interface IZaabeeZeroMqHub : IScatterSocket, IGatherSocket, IRadioSocket, IDishSocket, IClientSocket,
+    public interface IZaabeeZeroMessageBus : IScatterSocket, IGatherSocket, IRadioSocket, IDishSocket, IClientSocket,
         IServerSocket, IDisposable
     {
-
     }
 }

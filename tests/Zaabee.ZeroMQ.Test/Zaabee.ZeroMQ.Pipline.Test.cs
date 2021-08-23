@@ -5,17 +5,17 @@ using Xunit;
 
 namespace Zaabee.ZeroMQ.Test
 {
-    public partial class ZaabeeZeroMqHubTest
+    public partial class ZaabeeZeroMessageBusTest
     {
         [Fact]
         public void PipelineTest()
         {
             using var scatter =
-                new ZaabeeZeroMqHub(new Jil.Serializer(), scatterBindAddress: "inproc://test-scatter-gather");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), scatterBindAddress: "inproc://test-scatter-gather");
             using var gather0 =
-                new ZaabeeZeroMqHub(new Jil.Serializer(), gatherConnectAddress: "inproc://test-scatter-gather");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), gatherConnectAddress: "inproc://test-scatter-gather");
             using var gather1 =
-                new ZaabeeZeroMqHub(new Jil.Serializer(), gatherConnectAddress: "inproc://test-scatter-gather");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), gatherConnectAddress: "inproc://test-scatter-gather");
 
             var models = Enumerable
                 .Range(0, 4)

@@ -15,7 +15,7 @@ namespace Radio
             var rand = new Random();
             Console.WriteLine("Please input the ports which want to bind :");
             var ports = Console.ReadLine()?.Split(" ").Select(int.Parse);
-            using (var msgHub = new ZaabeeZeroMqHub(new Serializer()))
+            using (var msgHub = new ZaabeeZeroMessageBus(new Serializer()))
             {
                 Console.WriteLine("Publisher socket binding...");
                 msgHub.RadioSocketOptions.SendHighWatermark = 1000;
