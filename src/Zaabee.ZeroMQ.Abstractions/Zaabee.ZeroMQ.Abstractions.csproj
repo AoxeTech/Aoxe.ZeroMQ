@@ -7,7 +7,7 @@
         <Version>2021.4.0</Version>
         <Authors>Mutuduxf</Authors>
         <Company>Mutuduxf</Company>
-        <PackageTags>Zaabee ZeroMQ NetMQ message</PackageTags>
+        <PackageTags>Zaabee;ZeroMQ;NetMQ;Message Bus;Abstractions</PackageTags>
         <Description>Abstraction for Zaabee.ZeroMQ</Description>
         <PackageProjectUrl>https://github.com/Mutuduxf/Zaabee.ZeroMQ</PackageProjectUrl>
         <LicenseExpression>MIT</LicenseExpression>

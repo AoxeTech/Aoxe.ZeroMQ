@@ -7,7 +7,7 @@
         <Version>2021.8.1</Version>
         <Authors>Mutuduxf</Authors>
         <Company>Mutuduxf</Company>
-        <PackageTags>Zaabee;ZeroMQ;Message Bus</PackageTags>
+        <PackageTags>Zaabee;ZeroMQ;NetMQ;Message Bus</PackageTags>
         <Description>Wraps and extensions for ZeroMQ.</Description>
         <PackageProjectUrl>https://github.com/Mutuduxf/Zaabee.ZeroMQ</PackageProjectUrl>
         <LicenseExpression>MIT</LicenseExpression>
