@@ -1,13 +1,13 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>netstandard2.0</TargetFramework>
+        <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>2021.8.0</PackageVersion>
-        <Version>2021.8.0</Version>
+        <PackageVersion>2021.8.1</PackageVersion>
+        <Version>2021.8.1</Version>
         <Authors>Mutuduxf</Authors>
         <Company>Mutuduxf</Company>
-        <PackageTags>Zaabee ZeroMQ message</PackageTags>
+        <PackageTags>Zaabee;ZeroMQ;Message Bus</PackageTags>
         <Description>Wraps and extensions for ZeroMQ.</Description>
         <PackageProjectUrl>https://github.com/Mutuduxf/Zaabee.ZeroMQ</PackageProjectUrl>
         <LicenseExpression>MIT</LicenseExpression>
@@ -17,7 +17,7 @@
     <ItemGroup>
         <PackageReference Include="NetMQ" Version="4.0.1.6" />
         <PackageReference Include="Zaabee.ZeroMQ.Abstractions" Version="2021.4.0" />
-        <PackageReference Include="Zaabee.Serializer.Abstractions" Version="2021.8.0" />
+        <PackageReference Include="Zaabee.Serializer.Abstractions" Version="2021.8.2" />
     </ItemGroup>
 
 </Project>
