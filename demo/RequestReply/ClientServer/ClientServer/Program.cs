@@ -9,7 +9,7 @@ namespace ClientServer
     {
         static void Main(string[] args)
         {
-            using var msgHub = new ZaabeeZeroMessageBus(new Serializer());
+            using var msgHub = new ZaabeeZeroMessageBus(new ZaabeeSerializer());
             msgHub.ServerBind("tcp://*:12345");
             msgHub.ClientConnect("tcp://localhost:12345");
 

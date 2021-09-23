@@ -13,7 +13,7 @@ namespace Gather
         {
             Console.WriteLine("Please input ports which want to bind :");
             var ports = Console.ReadLine()?.Split(" ").Select(int.Parse);
-            using (var gather = new ZaabeeZeroMessageBus(new Serializer()))
+            using (var gather = new ZaabeeZeroMessageBus(new ZaabeeSerializer()))
             {
                 foreach (var port in ports)
                     gather.GatherConnect($"tcp://localhost:{port}");

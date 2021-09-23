@@ -2,6 +2,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using TestModels;
 using Xunit;
+using Zaabee.Jil;
 
 namespace Zaabee.ZeroMQ.Test
 {
@@ -14,26 +15,26 @@ namespace Zaabee.ZeroMQ.Test
             const string groupB = "GroupB";
             var groupDefault = typeof(TestModel).ToString();
 
-            using var publisher = new ZaabeeZeroMessageBus(new Jil.Serializer(),
+            using var publisher = new ZaabeeZeroMessageBus(new ZaabeeSerializer(),
                 radioBindAddress: "inproc://test-publish-subscribe-async");
             publisher.RadioSocketOptions.SendHighWatermark = 1000;
 
-            using var subGroupA = new ZaabeeZeroMessageBus(new Jil.Serializer(),
+            using var subGroupA = new ZaabeeZeroMessageBus(new ZaabeeSerializer(),
                 dishConnectAddress: "inproc://test-publish-subscribe-async");
             subGroupA.DishJoin(groupA);
             subGroupA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
-            using var subGroupB = new ZaabeeZeroMessageBus(new Jil.Serializer(),
+            using var subGroupB = new ZaabeeZeroMessageBus(new ZaabeeSerializer(),
                 dishConnectAddress: "inproc://test-publish-subscribe-async");
             subGroupB.DishJoin(groupB);
             subGroupA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
-            using var subGroupDefault = new ZaabeeZeroMessageBus(new Jil.Serializer(),
+            using var subGroupDefault = new ZaabeeZeroMessageBus(new ZaabeeSerializer(),
                 dishConnectAddress: "inproc://test-publish-subscribe-async");
             subGroupDefault.DishJoin(groupDefault);
             subGroupDefault.DishSocketOptions.ReceiveHighWatermark = 1000;
 
-            using var subGroupAll = new ZaabeeZeroMessageBus(new Jil.Serializer(),
+            using var subGroupAll = new ZaabeeZeroMessageBus(new ZaabeeSerializer(),
                 dishConnectAddress: "inproc://test-publish-subscribe-async");
             subGroupAll.DishJoin(groupA);
             subGroupAll.DishJoin(groupB);

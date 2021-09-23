@@ -31,7 +31,7 @@ namespace Dish
     {
         public async Task Handle(IEnumerable<int> ports, IEnumerable<string> topics)
         {
-            using (var msgHub = new ZaabeeZeroMessageBus(new Serializer()))
+            using (var msgHub = new ZaabeeZeroMessageBus(new ZaabeeSerializer()))
             {
                 msgHub.DishSocketOptions.ReceiveHighWatermark = 1000;
                 foreach (var port in ports)

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TestModels;
 using Xunit;
+using Zaabee.Jil;
 
 namespace Zaabee.ZeroMQ.Test
 {
@@ -10,7 +11,7 @@ namespace Zaabee.ZeroMQ.Test
         [Fact]
         public void OptionsTest()
         {
-            var mqHub = new ZaabeeZeroMessageBus(new Jil.Serializer());
+            var mqHub = new ZaabeeZeroMessageBus(new ZaabeeSerializer());
             Assert.NotNull(mqHub.ClientSocketOptions);
             Assert.NotNull(mqHub.ServerSocketOptions);
             Assert.NotNull(mqHub.ScatterSocketOptions);

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using TestModels;
 using Xunit;
+using Zaabee.Jil;
 
 namespace Zaabee.ZeroMQ.Test
 {
@@ -11,11 +12,11 @@ namespace Zaabee.ZeroMQ.Test
         public void PipelineTest()
         {
             using var scatter =
-                new ZaabeeZeroMessageBus(new Jil.Serializer(), scatterBindAddress: "inproc://test-scatter-gather");
+                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), scatterBindAddress: "inproc://test-scatter-gather");
             using var gather0 =
-                new ZaabeeZeroMessageBus(new Jil.Serializer(), gatherConnectAddress: "inproc://test-scatter-gather");
+                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), gatherConnectAddress: "inproc://test-scatter-gather");
             using var gather1 =
-                new ZaabeeZeroMessageBus(new Jil.Serializer(), gatherConnectAddress: "inproc://test-scatter-gather");
+                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), gatherConnectAddress: "inproc://test-scatter-gather");
 
             var models = Enumerable
                 .Range(0, 4)

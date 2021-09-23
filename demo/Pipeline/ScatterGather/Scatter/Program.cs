@@ -13,7 +13,7 @@ namespace Scatter
         {
             Console.WriteLine("Please input ports which want to bind :");
             var ports = Console.ReadLine()?.Split(" ").Select(int.Parse);
-            using (var scatter = new ZaabeeZeroMessageBus(new Serializer()))
+            using (var scatter = new ZaabeeZeroMessageBus(new ZaabeeSerializer()))
             {
                 foreach (var port in ports)
                     scatter.ScatterBind($"tcp://*:{port}");

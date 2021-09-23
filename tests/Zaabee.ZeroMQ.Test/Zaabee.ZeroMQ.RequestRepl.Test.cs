@@ -1,5 +1,6 @@
 using TestModels;
 using Xunit;
+using Zaabee.Jil;
 
 namespace Zaabee.ZeroMQ.Test
 {
@@ -9,11 +10,11 @@ namespace Zaabee.ZeroMQ.Test
         public void ReqRepTest()
         {
             using var server =
-                new ZaabeeZeroMessageBus(new Jil.Serializer(), serverBindAddress: "inproc://test-client-server");
+                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), serverBindAddress: "inproc://test-client-server");
             using var clientA =
-                new ZaabeeZeroMessageBus(new Jil.Serializer(), clientConnectAddress: "inproc://test-client-server");
+                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), clientConnectAddress: "inproc://test-client-server");
             using var clientB =
-                new ZaabeeZeroMessageBus(new Jil.Serializer(), clientConnectAddress: "inproc://test-client-server");
+                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), clientConnectAddress: "inproc://test-client-server");
 
             var modelA = TestModelFactory.Create();
             var modelB = TestModelFactory.Create();
