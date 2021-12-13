@@ -1,10 +1,7 @@
-using System.Threading.Tasks;
+namespace Zaabee.ZeroMQ.Abstractions.Socket.Pipeline;
 
-namespace Zaabee.ZeroMQ.Abstractions.Socket.Pipeline
+public interface IGatherSocket
 {
-    public interface IGatherSocket
-    {
-        T Pull<T>();
-        Task<T> PullAsync<T>();
-    }
+    T Pull<T>();
+    Task<T> PullAsync<T>();
 }

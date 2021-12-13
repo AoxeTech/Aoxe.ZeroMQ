@@ -1,12 +1,9 @@
-using System.Threading.Tasks;
+namespace Zaabee.ZeroMQ.Abstractions.Socket.RequestReply;
 
-namespace Zaabee.ZeroMQ.Abstractions.Socket.RequestReply
+public interface IClientSocket
 {
-    public interface IClientSocket
-    {
-        void ClientSend<T>(T message);
-        Task ClientSendAsync<T>(T message);
-        T ClientReceive<T>();
-        Task<T> ClientReceiveAsync<T>();
-    }
+    void ClientSend<T>(T message);
+    Task ClientSendAsync<T>(T message);
+    T ClientReceive<T>();
+    Task<T> ClientReceiveAsync<T>();
 }
