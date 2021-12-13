@@ -11,7 +11,7 @@ namespace Zaabee.ZeroMQ.Test
         [Fact]
         public void OptionsTest()
         {
-            var mqHub = new ZaabeeZeroMessageBus(new ZaabeeSerializer());
+            var mqHub = new ZaabeeZeroMessageBus(new Jil.Serializer());
             Assert.NotNull(mqHub.ClientSocketOptions);
             Assert.NotNull(mqHub.ServerSocketOptions);
             Assert.NotNull(mqHub.ScatterSocketOptions);

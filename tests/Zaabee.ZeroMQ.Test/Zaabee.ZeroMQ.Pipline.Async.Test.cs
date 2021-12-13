@@ -13,11 +13,11 @@ namespace Zaabee.ZeroMQ.Test
         public async Task PipelineTestAsync()
         {
             using var scatter =
-                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), scatterBindAddress: "inproc://test-scatter-gather-async");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), scatterBindAddress: "inproc://test-scatter-gather-async");
             using var gather0 =
-                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), gatherConnectAddress: "inproc://test-scatter-gather-async");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), gatherConnectAddress: "inproc://test-scatter-gather-async");
             using var gather1 =
-                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), gatherConnectAddress: "inproc://test-scatter-gather-async");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), gatherConnectAddress: "inproc://test-scatter-gather-async");
 
             var models = Enumerable
                 .Range(0, 4)

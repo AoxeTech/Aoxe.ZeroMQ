@@ -20,26 +20,26 @@ namespace Zaabee.ZeroMQ.Test
             const string groupB = "GroupB";
             var groupDefault = typeof(TestModel).ToString();
 
-            using var publisher = new ZaabeeZeroMessageBus(new ZaabeeSerializer(),
+            using var publisher = new ZaabeeZeroMessageBus(new Jil.Serializer(),
                 radioBindAddress: "inproc://test-publish-subscribe");
             publisher.RadioSocketOptions.SendHighWatermark = 1000;
 
-            using var subGroupA = new ZaabeeZeroMessageBus(new ZaabeeSerializer(),
+            using var subGroupA = new ZaabeeZeroMessageBus(new Jil.Serializer(),
                 dishConnectAddress: "inproc://test-publish-subscribe");
             subGroupA.DishJoin(groupA);
             subGroupA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
-            using var subGroupB = new ZaabeeZeroMessageBus(new ZaabeeSerializer(),
+            using var subGroupB = new ZaabeeZeroMessageBus(new Jil.Serializer(),
                 dishConnectAddress: "inproc://test-publish-subscribe");
             subGroupB.DishJoin(groupB);
             subGroupA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
-            using var subGroupDefault = new ZaabeeZeroMessageBus(new ZaabeeSerializer(),
+            using var subGroupDefault = new ZaabeeZeroMessageBus(new Jil.Serializer(),
                 dishConnectAddress: "inproc://test-publish-subscribe");
             subGroupDefault.DishJoin(groupDefault);
             subGroupDefault.DishSocketOptions.ReceiveHighWatermark = 1000;
 
-            using var subGroupAll = new ZaabeeZeroMessageBus(new ZaabeeSerializer(),
+            using var subGroupAll = new ZaabeeZeroMessageBus(new Jil.Serializer(),
                 dishConnectAddress: "inproc://test-publish-subscribe");
             subGroupAll.DishJoin(groupA);
             subGroupAll.DishJoin(groupB);

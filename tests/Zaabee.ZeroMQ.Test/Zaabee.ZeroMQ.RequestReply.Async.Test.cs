@@ -11,11 +11,11 @@ namespace Zaabee.ZeroMQ.Test
         public async Task ReqRepTestAsync()
         {
             using var server =
-                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), serverBindAddress: "inproc://test-client-server-async");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), serverBindAddress: "inproc://test-client-server-async");
             using var clientA =
-                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), clientConnectAddress: "inproc://test-client-server-async");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), clientConnectAddress: "inproc://test-client-server-async");
             using var clientB =
-                new ZaabeeZeroMessageBus(new ZaabeeSerializer(), clientConnectAddress: "inproc://test-client-server-async");
+                new ZaabeeZeroMessageBus(new Jil.Serializer(), clientConnectAddress: "inproc://test-client-server-async");
 
             var modelA = TestModelFactory.Create();
             var modelB = TestModelFactory.Create();

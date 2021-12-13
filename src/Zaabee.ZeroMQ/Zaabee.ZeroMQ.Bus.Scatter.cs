@@ -1,16 +1,12 @@
-using System.Threading.Tasks;
-using NetMQ;
+namespace Zaabee.ZeroMQ;
 
-namespace Zaabee.ZeroMQ
+public partial class ZaabeeZeroMessageBus
 {
-    public partial class ZaabeeZeroMessageBus
-    {
-        public ThreadSafeSocketOptions ScatterSocketOptions => _scatterSocket.Options;
+    public ThreadSafeSocketOptions ScatterSocketOptions => _scatterSocket.Options;
 
-        public void Push<T>(T message) =>
-            _scatterSocket.Send(_serializer.SerializeToBytes(message));
+    public void Push<T>(T? message) =>
+        _scatterSocket.Send(_serializer.ToBytes(message));
 
-        public async Task PushAsync<T>(T message) =>
-            await _scatterSocket.SendAsync(_serializer.SerializeToBytes(message));
-    }
+    public async Task PushAsync<T>(T? message) =>
+        await _scatterSocket.SendAsync(_serializer.ToBytes(message));
 }
