@@ -14,7 +14,7 @@ public partial class ZaabeeZeroMessageBusTest
         Assert.NotNull(mqHub.DishSocketOptions);
     }
         
-    private static bool EqualModels(ICollection<TestModel> models0, ICollection<TestModel> models1)
+    private static bool EqualModels(ICollection<TestModel>? models0, ICollection<TestModel>? models1)
     {
         if (models0 is null || models1 is null) return false;
         if (models0.Count != models1.Count) return false;
