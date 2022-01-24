@@ -3,8 +3,8 @@
     <PropertyGroup>
         <TargetFrameworks>netstandard2.0;netstandard2.1</TargetFrameworks>
         <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-        <PackageVersion>2022.3.2</PackageVersion>
-        <Version>2022.3.2</Version>
+        <PackageVersion>2022.3.4</PackageVersion>
+        <Version>2022.3.4</Version>
         <Authors>Mutuduxf</Authors>
         <Company>Mutuduxf</Company>
         <PackageTags>Zaabee;ZeroMQ;NetMQ;Message Bus</PackageTags>
@@ -18,7 +18,7 @@
     <ItemGroup>
         <PackageReference Include="NetMQ" Version="4.0.1.6" />
         <PackageReference Include="Zaabee.ZeroMQ.Abstractions" Version="2022.6.0" />
-        <PackageReference Include="Zaabee.Serializer.Abstractions" Version="2022.2.0" />
+        <PackageReference Include="Zaabee.Serializer.Abstractions" Version="2022.3.0" />
     </ItemGroup>
 
 </Project>
