@@ -19,7 +19,7 @@ public partial class ZaabeeZeroMessageBusTest
 
         models.ForEach(async model => await scatter.PushAsync(model));
 
-        var receiveModels = new List<TestModel>
+        var receiveModels = new List<TestModel?>
         {
             await gather0.PullAsync<TestModel>(),
             await gather0.PullAsync<TestModel>(),
