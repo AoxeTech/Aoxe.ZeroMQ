@@ -10,9 +10,9 @@ public partial class ZaabeeZeroMessageBusTest
     [Fact]
     public void PubSubTest()
     {
-        const string groupA = "GroupA";
-        const string groupB = "GroupB";
-        var groupDefault = typeof(TestModel).ToString();
+        const string topicA = "TopicA";
+        const string topicB = "TopicB";
+        var topicDefault = typeof(TestModel).ToString();
 
         using var publisher = new ZaabeeZeroMessageBus(new Jil.Serializer(),
             radioBindAddress: "inproc://test-publish-subscribe");
@@ -20,23 +20,23 @@ public partial class ZaabeeZeroMessageBusTest
 
         using var subGroupA = new ZaabeeZeroMessageBus(new Jil.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe");
-        subGroupA.DishJoin(groupA);
+        subGroupA.DishJoin(topicA);
         subGroupA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
         using var subGroupB = new ZaabeeZeroMessageBus(new Jil.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe");
-        subGroupB.DishJoin(groupB);
+        subGroupB.DishJoin(topicB);
         subGroupA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
         using var subGroupDefault = new ZaabeeZeroMessageBus(new Jil.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe");
-        subGroupDefault.DishJoin(groupDefault);
+        subGroupDefault.DishJoin(topicDefault);
         subGroupDefault.DishSocketOptions.ReceiveHighWatermark = 1000;
 
         using var subGroupAll = new ZaabeeZeroMessageBus(new Jil.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe");
-        subGroupAll.DishJoin(groupA);
-        subGroupAll.DishJoin(groupB);
+        subGroupAll.DishJoin(topicA);
+        subGroupAll.DishJoin(topicB);
 
         var modelsGroupA = Enumerable
             .Range(0, 10)
@@ -53,28 +53,28 @@ public partial class ZaabeeZeroMessageBusTest
             .Select(_ => TestModelFactory.Create())
             .ToList();
 
-        modelsGroupA.ForEach(model => publisher.Publish(groupA, model));
-        modelsGroupB.ForEach(model => publisher.Publish(groupB, model));
+        modelsGroupA.ForEach(model => publisher.Publish(topicA, model));
+        modelsGroupB.ForEach(model => publisher.Publish(topicB, model));
         modelsGroupDefault.ForEach(model => publisher.Publish(model));
 
         modelsGroupA.ForEach(_ =>
         {
-            var (group, model) = subGroupA.DishReceive<TestModel>();
-            Assert.Equal("GroupA", group);
+            var (topic, model) = subGroupA.DishReceive<TestModel>();
+            Assert.Equal(topicA, topic);
             _groupA.Add(model);
         });
 
         modelsGroupB.ForEach(_ =>
         {
-            var (group, model) = subGroupB.DishReceive<TestModel>();
-            Assert.Equal("GroupB", group);
+            var (topic, model) = subGroupB.DishReceive<TestModel>();
+            Assert.Equal(topicB, topic);
             _groupB.Add(model);
         });
 
         modelsGroupDefault.ForEach(_ =>
         {
-            var (group, model) = subGroupDefault.DishReceive<TestModel>();
-            Assert.Equal(groupDefault, group);
+            var (topic, model) = subGroupDefault.DishReceive<TestModel>();
+            Assert.Equal(topicDefault, topic);
             _groupDefault.Add(model);
         });
 

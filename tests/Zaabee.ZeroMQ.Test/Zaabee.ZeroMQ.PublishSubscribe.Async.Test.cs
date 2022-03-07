@@ -5,9 +5,9 @@ public partial class ZaabeeZeroMessageBusTest
     [Fact]
     public async Task PubSubTestAsync()
     {
-        const string groupA = "GroupA";
-        const string groupB = "GroupB";
-        var groupDefault = typeof(TestModel).ToString();
+        const string topicA = "TopicA";
+        const string topicB = "TopicB";
+        var topicDefault = typeof(TestModel).ToString();
 
         using var publisher = new ZaabeeZeroMessageBus(new Jil.Serializer(),
             radioBindAddress: "inproc://test-publish-subscribe-async");
@@ -15,23 +15,23 @@ public partial class ZaabeeZeroMessageBusTest
 
         using var subGroupA = new ZaabeeZeroMessageBus(new Jil.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe-async");
-        subGroupA.DishJoin(groupA);
+        subGroupA.DishJoin(topicA);
         subGroupA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
         using var subGroupB = new ZaabeeZeroMessageBus(new Jil.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe-async");
-        subGroupB.DishJoin(groupB);
+        subGroupB.DishJoin(topicB);
         subGroupA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
         using var subGroupDefault = new ZaabeeZeroMessageBus(new Jil.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe-async");
-        subGroupDefault.DishJoin(groupDefault);
+        subGroupDefault.DishJoin(topicDefault);
         subGroupDefault.DishSocketOptions.ReceiveHighWatermark = 1000;
 
         using var subGroupAll = new ZaabeeZeroMessageBus(new Jil.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe-async");
-        subGroupAll.DishJoin(groupA);
-        subGroupAll.DishJoin(groupB);
+        subGroupAll.DishJoin(topicA);
+        subGroupAll.DishJoin(topicB);
 
         var modelsGroupA = Enumerable
             .Range(0, 10)
@@ -48,28 +48,28 @@ public partial class ZaabeeZeroMessageBusTest
             .Select(_ => TestModelFactory.Create())
             .ToList();
 
-        modelsGroupA.ForEach(async model => await publisher.PublishAsync(groupA, model));
-        modelsGroupB.ForEach(async model => await publisher.PublishAsync(groupB, model));
+        modelsGroupA.ForEach(async model => await publisher.PublishAsync(topicA, model));
+        modelsGroupB.ForEach(async model => await publisher.PublishAsync(topicB, model));
         modelsGroupDefault.ForEach(async model => await publisher.PublishAsync(model));
 
         modelsGroupA.ForEach(async _ =>
         {
             var (group, model) = await subGroupA.DishReceiveAsync<TestModel>();
-            Assert.Equal("GroupA", group);
+            Assert.Equal(topicA, group);
             _groupA.Add(model);
         });
 
         modelsGroupB.ForEach(async _ =>
         {
             var (group, model) = await subGroupB.DishReceiveAsync<TestModel>();
-            Assert.Equal("GroupB", group);
+            Assert.Equal(topicB, group);
             _groupB.Add(model);
         });
 
         modelsGroupDefault.ForEach(async _ =>
         {
             var (group, model) = await subGroupDefault.DishReceiveAsync<TestModel>();
-            Assert.Equal(groupDefault, group);
+            Assert.Equal(topicDefault, group);
             _groupDefault.Add(model);
         });
 

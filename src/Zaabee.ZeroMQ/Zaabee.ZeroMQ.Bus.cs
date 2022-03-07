@@ -70,10 +70,10 @@ public partial class ZaabeeZeroMessageBus : IZaabeeZeroMessageBus
             _dishSocket.Connect(address);
     }
 
-    public void DishJoin(params string[] groups)
+    public void DishJoin(params string[] topics)
     {
-        foreach (var group in groups)
-            _dishSocket.Join(group);
+        foreach (var topic in topics)
+            _dishSocket.Join(topic);
     }
 
     public void Dispose()

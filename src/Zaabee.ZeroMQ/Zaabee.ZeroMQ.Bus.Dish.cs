@@ -6,13 +6,13 @@ public partial class ZaabeeZeroMessageBus
 
     public (string, T?) DishReceive<T>()
     {
-        var (group, messageBytes) = _dishSocket.ReceiveBytes();
-        return (group, _serializer.FromBytes<T>(messageBytes));
+        var (topic, messageBytes) = _dishSocket.ReceiveBytes();
+        return (topic, _serializer.FromBytes<T>(messageBytes));
     }
 
     public async Task<(string, T?)> DishReceiveAsync<T>()
     {
-        var (group, messageBytes) = await _dishSocket.ReceiveBytesAsync();
-        return (group, _serializer.FromBytes<T>(messageBytes));
+        var (topic, messageBytes) = await _dishSocket.ReceiveBytesAsync();
+        return (topic, _serializer.FromBytes<T>(messageBytes));
     }
 }
