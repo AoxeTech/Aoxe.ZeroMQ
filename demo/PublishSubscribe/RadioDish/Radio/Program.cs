@@ -25,7 +25,7 @@ namespace Radio
                     Console.WriteLine($"Radio socket has bind port [{port}].");
                 }
 
-                Console.Write("Please input the groups :");
+                Console.Write("Please input the topics :");
                 var topics = Console.ReadLine()?.Split(" ").ToList();
                 Console.Write("Please input the publish quantity or exist:");
                 var input = Console.ReadLine();
