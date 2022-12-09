@@ -2,10 +2,10 @@ namespace Zaabee.ZeroMQ.Test;
 
 public partial class ZaabeeZeroMessageBusTest
 {
-    private readonly List<TestModel?> _topicA = new();
-    private readonly List<TestModel?> _topicB = new();
-    private readonly List<TestModel?> _topicDefault = new();
-    private readonly List<TestModel?> _topicAll = new();
+    private readonly List<TestModel?>? _topicA = new();
+    private readonly List<TestModel?>? _topicB = new();
+    private readonly List<TestModel?>? _topicDefault = new();
+    private readonly List<TestModel?>? _topicAll = new();
 
     [Fact]
     public void PubSubTest()
