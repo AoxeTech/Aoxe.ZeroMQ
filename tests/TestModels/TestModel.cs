@@ -1,8 +1,4 @@
-﻿using System;
-using ProtoBuf;
-using ZeroFormatter;
-
-namespace TestModels;
+﻿namespace TestModels;
 
 [Serializable]
 [ProtoContract]
