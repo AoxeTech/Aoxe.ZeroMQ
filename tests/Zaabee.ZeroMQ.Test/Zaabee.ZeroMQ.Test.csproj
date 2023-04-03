@@ -16,7 +16,7 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="Zaabee.Jil" Version="2023.2.1" />
+		<PackageReference Include="Zaabee.Jil" Version="2023.4.0" />
 	</ItemGroup>
 	<ItemGroup>
 		<ProjectReference Include="..\..\src\Zaabee.ZeroMQ\Zaabee.ZeroMQ.csproj" />
