@@ -2,8 +2,8 @@
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageVersion>2023.1.4</PackageVersion>
-		<Version>2023.1.4</Version>
+		<PackageVersion>2023.1.6</PackageVersion>
+		<Version>2023.1.6</Version>
 		<Authors>Mutuduxf</Authors>
 		<Company>Mutuduxf</Company>
 		<PackageTags>Zaabee;ZeroMQ;NetMQ;Message Bus</PackageTags>
@@ -14,7 +14,7 @@
 		<Nullable>enable</Nullable>
 	</PropertyGroup>
 	<ItemGroup>
-		<PackageReference Include="NetMQ" Version="4.0.1.11" />
+		<PackageReference Include="NetMQ" Version="4.0.1.12" />
 		<PackageReference Include="Zaabee.ZeroMQ.Abstractions" Version="2023.1.1" />
 		<PackageReference Include="Zaabee.Serializer.Abstractions" Version="2023.3.0" />
 	</ItemGroup>
