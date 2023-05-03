@@ -1,25 +1,20 @@
-﻿using System;
-using NetMQ;
-using NetMQ.Sockets;
+﻿namespace Request;
 
-namespace Request
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        using (var requestSocket = new RequestSocket(">tcp://localhost:5001"))
         {
-            using (var requestSocket = new RequestSocket(">tcp://localhost:5001"))
+            Console.WriteLine($"[{DateTime.Now}]Client start success.");
+            while (true)
             {
-                Console.WriteLine($"[{DateTime.Now}]Client start success.");
-                while (true)
-                {
-                    var msg = Console.ReadLine();
-                    if (msg is "exit") break;
-                    if (string.IsNullOrWhiteSpace(msg)) continue;
-                    requestSocket.SendFrame(msg);
-                    msg = requestSocket.ReceiveFrameString();
-                    Console.WriteLine($"[{DateTime.Now}]{msg}");
-                }
+                var msg = Console.ReadLine();
+                if (msg is "exit") break;
+                if (string.IsNullOrWhiteSpace(msg)) continue;
+                requestSocket.SendFrame(msg);
+                msg = requestSocket.ReceiveFrameString();
+                Console.WriteLine($"[{DateTime.Now}]{msg}");
             }
         }
     }

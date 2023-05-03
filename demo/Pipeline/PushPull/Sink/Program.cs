@@ -1,41 +1,35 @@
-﻿using System;
-using System.Diagnostics;
-using NetMQ;
-using NetMQ.Sockets;
+﻿namespace Sink;
 
-namespace Sink
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        // Task Sink
+        // Bind PULL socket to tcp://localhost:5558
+        // Collects results from workers via that socket
+        Console.WriteLine("====== SINK ======");
+
+        //socket to receive messages on
+        using (var receiver = new PullSocket("@tcp://localhost:5558"))
         {
-            // Task Sink
-            // Bind PULL socket to tcp://localhost:5558
-            // Collects results from workers via that socket
-            Console.WriteLine("====== SINK ======");
+            //wait for start of batch (see Ventilator.csproj Program.cs)
+            var startOfBatchTrigger = receiver.ReceiveFrameString();
+            Console.WriteLine("Seen start of batch");
 
-            //socket to receive messages on
-            using (var receiver = new PullSocket("@tcp://localhost:5558"))
+            //Start our clock now
+            var watch = Stopwatch.StartNew();
+
+            for (var taskNumber = 0; taskNumber < 100; taskNumber++)
             {
-                //wait for start of batch (see Ventilator.csproj Program.cs)
-                var startOfBatchTrigger = receiver.ReceiveFrameString();
-                Console.WriteLine("Seen start of batch");
-
-                //Start our clock now
-                var watch = Stopwatch.StartNew();
-
-                for (var taskNumber = 0; taskNumber < 100; taskNumber++)
-                {
-                    var workerDoneTrigger = receiver.ReceiveFrameString();
-                    Console.Write(taskNumber % 10 == 0 ? ":" : ".");
-                }
-
-                watch.Stop();
-                //Calculate and report duration of batch
-                Console.WriteLine();
-                Console.WriteLine("Total elapsed time {0} msec", watch.ElapsedMilliseconds);
-                Console.ReadLine();
+                var workerDoneTrigger = receiver.ReceiveFrameString();
+                Console.Write(taskNumber % 10 == 0 ? ":" : ".");
             }
+
+            watch.Stop();
+            //Calculate and report duration of batch
+            Console.WriteLine();
+            Console.WriteLine("Total elapsed time {0} msec", watch.ElapsedMilliseconds);
+            Console.ReadLine();
         }
     }
 }

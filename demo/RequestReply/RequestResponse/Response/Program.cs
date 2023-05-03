@@ -1,22 +1,17 @@
-﻿using System;
-using NetMQ;
-using NetMQ.Sockets;
+﻿namespace Response;
 
-namespace Response
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        using (var responseSocket = new ResponseSocket("@tcp://*:5001"))
         {
-            using (var responseSocket = new ResponseSocket("@tcp://*:5001"))
+            Console.WriteLine($"[{DateTime.Now}]Server start success.");
+            while (true)
             {
-                Console.WriteLine($"[{DateTime.Now}]Server start success.");
-                while (true)
-                {
-                    var msg = responseSocket.ReceiveFrameString();
-                    Console.WriteLine($"[{DateTime.Now}]Receive \"{msg}\"");
-                    responseSocket.SendFrame($"Pass back——{msg} to you too");
-                }
+                var msg = responseSocket.ReceiveFrameString();
+                Console.WriteLine($"[{DateTime.Now}]Receive \"{msg}\"");
+                responseSocket.SendFrame($"Pass back——{msg} to you too");
             }
         }
     }
