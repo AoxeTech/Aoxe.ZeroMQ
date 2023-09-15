@@ -7,6 +7,6 @@ public partial class ZaabeeZeroMessageBus
     public T? Pull<T>() =>
         _serializer.FromBytes<T>(_gatherSocket.ReceiveBytes());
 
-    public async Task<T?> PullAsync<T>() =>
+    public async ValueTask<T?> PullAsync<T>() =>
         _serializer.FromBytes<T>(await _gatherSocket.ReceiveBytesAsync());
 }

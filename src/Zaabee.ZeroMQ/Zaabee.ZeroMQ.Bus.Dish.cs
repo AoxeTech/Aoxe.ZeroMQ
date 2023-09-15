@@ -10,7 +10,7 @@ public partial class ZaabeeZeroMessageBus
         return (topic, _serializer.FromBytes<T>(messageBytes));
     }
 
-    public async Task<(string, T?)> DishReceiveAsync<T>()
+    public async ValueTask<(string, T?)> DishReceiveAsync<T>()
     {
         var (topic, messageBytes) = await _dishSocket.ReceiveBytesAsync();
         return (topic, _serializer.FromBytes<T>(messageBytes));

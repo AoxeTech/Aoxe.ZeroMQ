@@ -4,5 +4,5 @@ public interface IDishSocket
 {
     (string, T?) DishReceive<T>();
 
-    Task<(string, T?)> DishReceiveAsync<T>();
+    ValueTask<(string, T?)> DishReceiveAsync<T>();
 }
