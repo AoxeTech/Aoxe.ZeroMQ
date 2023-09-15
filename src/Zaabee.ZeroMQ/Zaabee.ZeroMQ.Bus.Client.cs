@@ -7,8 +7,8 @@ public partial class ZaabeeZeroMessageBus
     public void ClientSend<T>(T? message) =>
         _clientSocket.Send(_serializer.ToBytes(message));
 
-    public async ValueTask ClientSendAsync<T>(T? message) =>
-        await _clientSocket.SendAsync(_serializer.ToBytes(message));
+    public ValueTask ClientSendAsync<T>(T? message) =>
+        _clientSocket.SendAsync(_serializer.ToBytes(message));
 
     public T? ClientReceive<T>() =>
         _serializer.FromBytes<T>(_clientSocket.ReceiveBytes());

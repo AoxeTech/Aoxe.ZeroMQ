@@ -7,8 +7,8 @@ public partial class ZaabeeZeroMessageBus
     public void ServerSend<T>(uint routingId, T? message) =>
         _serverSocket.Send(routingId, _serializer.ToBytes(message));
 
-    public async ValueTask ServerSendAsync<T>(uint routingId, T? message) =>
-        await _serverSocket.SendAsync(routingId, _serializer.ToBytes(message));
+    public ValueTask ServerSendAsync<T>(uint routingId, T? message) =>
+        _serverSocket.SendAsync(routingId, _serializer.ToBytes(message));
 
     public (uint, T?) ServerReceive<T>()
     {
