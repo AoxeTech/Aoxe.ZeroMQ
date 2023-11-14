@@ -2,8 +2,8 @@
 	<PropertyGroup>
 		<TargetFrameworks>netstandard2.0;net6.0;net7.0;net8.0</TargetFrameworks>
 		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-		<PackageVersion>2023.4.2</PackageVersion>
-		<Version>2023.4.2</Version>
+		<PackageVersion>2023.4.3</PackageVersion>
+		<Version>2023.4.3</Version>
 		<Authors>Mutuduxf</Authors>
 		<Company>Mutuduxf</Company>
 		<PackageTags>Zaabee;ZeroMQ;NetMQ;Message Bus</PackageTags>
@@ -17,5 +17,14 @@
 		<PackageReference Include="NetMQ" Version="4.0.1.13" />
 		<PackageReference Include="Zaabee.ZeroMQ.Abstractions" Version="2023.4.0" />
 		<PackageReference Include="Zaabee.Serializer.Abstractions" Version="2023.5.0" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net6.0'">
+	  <PackageReference Include="System.ServiceModel.Primitives" Version="6.2.0" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net7.0'">
+	  <PackageReference Include="System.ServiceModel.Primitives" Version="6.2.0" />
+	</ItemGroup>
+	<ItemGroup Condition="'$(TargetFramework)' == 'net8.0'">
+	  <PackageReference Include="System.ServiceModel.Primitives" Version="6.2.0" />
 	</ItemGroup>
 </Project>
