@@ -17,8 +17,15 @@ class Program
             {
                 var quantity = int.Parse(input);
                 for (var i = 0; i < quantity; i++)
-                    await scatter.PushAsync(new User
-                        {Id = Guid.NewGuid(), Name = "Alice", Age = 20, CreateTime = DateTime.Now});
+                    await scatter.PushAsync(
+                        new User
+                        {
+                            Id = Guid.NewGuid(),
+                            Name = "Alice",
+                            Age = 20,
+                            CreateTime = DateTime.Now
+                        }
+                    );
                 Console.WriteLine("Please input send quantity or exit : ");
                 input = Console.ReadLine();
             }

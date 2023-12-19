@@ -10,8 +10,10 @@ class Program
             while (true)
             {
                 var msg = Console.ReadLine();
-                if (msg is "exit") break;
-                if (string.IsNullOrWhiteSpace(msg)) continue;
+                if (msg is "exit")
+                    break;
+                if (string.IsNullOrWhiteSpace(msg))
+                    continue;
                 requestSocket.SendFrame(msg);
                 msg = requestSocket.ReceiveFrameString();
                 Console.WriteLine($"[{DateTime.Now}]{msg}");

@@ -13,8 +13,12 @@ class Program
             {
                 var msg = pairSocket.ReceiveFrameBytes();
                 Console.WriteLine(Encoding.UTF8.GetString(msg));
-                pairSocket.SendFrame(Encoding.UTF8.GetBytes($"client message to server1 in [{DateTime.Now}]"));
-                pairSocket.SendFrame(Encoding.UTF8.GetBytes($"client message to server2 in [{DateTime.Now}]"));
+                pairSocket.SendFrame(
+                    Encoding.UTF8.GetBytes($"client message to server1 in [{DateTime.Now}]")
+                );
+                pairSocket.SendFrame(
+                    Encoding.UTF8.GetBytes($"client message to server2 in [{DateTime.Now}]")
+                );
                 Thread.Sleep(1000);
             }
         }

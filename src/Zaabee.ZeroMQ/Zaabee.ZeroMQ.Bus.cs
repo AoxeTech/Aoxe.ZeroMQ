@@ -11,13 +11,15 @@ public partial class ZaabeeZeroMessageBus : IZaabeeZeroMessageBus
     private readonly RadioSocket _radioSocket = new();
     private readonly DishSocket _dishSocket = new();
 
-    public ZaabeeZeroMessageBus(IBytesSerializer serializer,
+    public ZaabeeZeroMessageBus(
+        IBytesSerializer serializer,
         string? serverBindAddress = null,
         string? clientConnectAddress = null,
         string? scatterBindAddress = null,
         string? gatherConnectAddress = null,
         string? radioBindAddress = null,
-        string? dishConnectAddress = null)
+        string? dishConnectAddress = null
+    )
     {
         _serializer = serializer;
         if (serverBindAddress is not null)

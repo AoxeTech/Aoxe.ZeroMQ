@@ -9,39 +9,43 @@ public partial class ZaabeeZeroMessageBusTest
         const string topicB = "TopicB";
         var topicDefault = typeof(TestModel).ToString();
 
-        using var publisher = new ZaabeeZeroMessageBus(new Jil.Serializer(),
-            radioBindAddress: "inproc://test-publish-subscribe-async");
+        using var publisher = new ZaabeeZeroMessageBus(
+            new Jil.Serializer(),
+            radioBindAddress: "inproc://test-publish-subscribe-async"
+        );
         publisher.RadioSocketOptions.SendHighWatermark = 1000;
 
-        using var subTopicA = new ZaabeeZeroMessageBus(new Jil.Serializer(),
-            dishConnectAddress: "inproc://test-publish-subscribe-async");
+        using var subTopicA = new ZaabeeZeroMessageBus(
+            new Jil.Serializer(),
+            dishConnectAddress: "inproc://test-publish-subscribe-async"
+        );
         subTopicA.DishJoin(topicA);
         subTopicA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
-        using var subTopicB = new ZaabeeZeroMessageBus(new Jil.Serializer(),
-            dishConnectAddress: "inproc://test-publish-subscribe-async");
+        using var subTopicB = new ZaabeeZeroMessageBus(
+            new Jil.Serializer(),
+            dishConnectAddress: "inproc://test-publish-subscribe-async"
+        );
         subTopicB.DishJoin(topicB);
         subTopicA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
-        using var subTopicDefault = new ZaabeeZeroMessageBus(new Jil.Serializer(),
-            dishConnectAddress: "inproc://test-publish-subscribe-async");
+        using var subTopicDefault = new ZaabeeZeroMessageBus(
+            new Jil.Serializer(),
+            dishConnectAddress: "inproc://test-publish-subscribe-async"
+        );
         subTopicDefault.DishJoin(topicDefault);
         subTopicDefault.DishSocketOptions.ReceiveHighWatermark = 1000;
 
-        using var subTopicAll = new ZaabeeZeroMessageBus(new Jil.Serializer(),
-            dishConnectAddress: "inproc://test-publish-subscribe-async");
+        using var subTopicAll = new ZaabeeZeroMessageBus(
+            new Jil.Serializer(),
+            dishConnectAddress: "inproc://test-publish-subscribe-async"
+        );
         subTopicAll.DishJoin(topicA);
         subTopicAll.DishJoin(topicB);
 
-        var modelsTopicA = Enumerable
-            .Range(0, 10)
-            .Select(_ => TestModelFactory.Create())
-            .ToList();
+        var modelsTopicA = Enumerable.Range(0, 10).Select(_ => TestModelFactory.Create()).ToList();
 
-        var modelsTopicB = Enumerable
-            .Range(0, 10)
-            .Select(_ => TestModelFactory.Create())
-            .ToList();
+        var modelsTopicB = Enumerable.Range(0, 10).Select(_ => TestModelFactory.Create()).ToList();
 
         var modelsTopicDefault = Enumerable
             .Range(0, 10)
@@ -80,7 +84,7 @@ public partial class ZaabeeZeroMessageBusTest
         }
 
         var topicAll = _topicA.Union(_topicB).ToList();
-            
+
         Assert.True(EqualModels(_topicA, modelsTopicA));
         Assert.True(EqualModels(_topicB, modelsTopicB));
         Assert.True(EqualModels(_topicAll, topicAll));

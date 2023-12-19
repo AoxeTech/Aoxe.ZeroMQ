@@ -14,7 +14,9 @@ class Program
             while (true)
             {
                 var (routingId, clientMsg) = await server.ReceiveStringAsync();
-                Console.WriteLine($"Server has received message [{clientMsg}] from routingId [{routingId}]");
+                Console.WriteLine(
+                    $"Server has received message [{clientMsg}] from routingId [{routingId}]"
+                );
                 var serverMsg = $"Receive [{clientMsg}] on [{DateTime.Now}]";
                 await server.SendAsync(routingId, serverMsg);
                 Console.WriteLine($"Server has sent message : {serverMsg}");

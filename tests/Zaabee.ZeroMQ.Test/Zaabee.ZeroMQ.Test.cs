@@ -16,11 +16,11 @@ public partial class ZaabeeZeroMessageBusTest
 
     private static bool EqualModels(List<TestModel?>? models0, List<TestModel?>? models1)
     {
-        if (models0 is null || models1 is null) return false;
-        if (models0.Count != models1.Count) return false;
-        return models0.All(model0 => models1.Any(model1 =>
-            EqualModel(model0, model1)
-        ));
+        if (models0 is null || models1 is null)
+            return false;
+        if (models0.Count != models1.Count)
+            return false;
+        return models0.All(model0 => models1.Any(model1 => EqualModel(model0, model1)));
     }
 
     private static bool EqualModel(TestModel? model0, TestModel? model1) =>

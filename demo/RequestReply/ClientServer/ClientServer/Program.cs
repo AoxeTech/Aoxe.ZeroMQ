@@ -20,7 +20,8 @@ class Program
         var (routingId, clientMsg) = msgHub.ServerReceive<User>();
 
         Console.WriteLine(
-            $"Server received \"{clientMsg.ToJson()}\" from client which routing Id is [{routingId}]");
+            $"Server received \"{clientMsg.ToJson()}\" from client which routing Id is [{routingId}]"
+        );
 
         clientMsg.Name = "Bob";
         msgHub.ServerSend(routingId, clientMsg);

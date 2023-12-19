@@ -18,7 +18,9 @@ class Program
                 await client.SendAsync(Encoding.UTF8.GetBytes(msg));
                 Console.WriteLine($"Client has sent [{msg}] to server.");
                 var serverMsg = await client.ReceiveStringAsync();
-                Console.WriteLine($"Client received \"{serverMsg}\" from server on [{DateTime.Now}].");
+                Console.WriteLine(
+                    $"Client received \"{serverMsg}\" from server on [{DateTime.Now}]."
+                );
                 Console.WriteLine("Input message to send or exit :");
                 msg = Console.ReadLine();
             }

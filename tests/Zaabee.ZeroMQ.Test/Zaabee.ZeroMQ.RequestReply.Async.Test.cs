@@ -5,12 +5,18 @@ public partial class ZaabeeZeroMessageBusTest
     [Fact]
     public async Task ReqRepTestAsync()
     {
-        using var server =
-            new ZaabeeZeroMessageBus(new Jil.Serializer(), serverBindAddress: "inproc://test-client-server-async");
-        using var clientA =
-            new ZaabeeZeroMessageBus(new Jil.Serializer(), clientConnectAddress: "inproc://test-client-server-async");
-        using var clientB =
-            new ZaabeeZeroMessageBus(new Jil.Serializer(), clientConnectAddress: "inproc://test-client-server-async");
+        using var server = new ZaabeeZeroMessageBus(
+            new Jil.Serializer(),
+            serverBindAddress: "inproc://test-client-server-async"
+        );
+        using var clientA = new ZaabeeZeroMessageBus(
+            new Jil.Serializer(),
+            clientConnectAddress: "inproc://test-client-server-async"
+        );
+        using var clientB = new ZaabeeZeroMessageBus(
+            new Jil.Serializer(),
+            clientConnectAddress: "inproc://test-client-server-async"
+        );
 
         var modelA = TestModelFactory.Create();
         var modelB = TestModelFactory.Create();

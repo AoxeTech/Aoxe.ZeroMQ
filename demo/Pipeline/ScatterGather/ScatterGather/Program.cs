@@ -19,17 +19,17 @@ class Program
         Console.WriteLine("Scatter1 bind test-scatter-gather3.");
         scatter2.Bind("inproc://test-scatter-gather4");
         Console.WriteLine("Scatter2 bind test-scatter-gather4.");
-            
+
         gather1.Connect("inproc://test-scatter-gather1");
         Console.WriteLine("Gather1 connected gather1.");
         gather1.Connect("inproc://test-scatter-gather2");
         Console.WriteLine("Gather1 connected gather2.");
-            
+
         gather2.Connect("inproc://test-scatter-gather2");
         Console.WriteLine("Gather2 connected gather2.");
         gather2.Connect("inproc://test-scatter-gather3");
         Console.WriteLine("Gather2 connected gather3.");
-            
+
         gather3.Connect("inproc://test-scatter-gather3");
         Console.WriteLine("Gather3 connected gather3.");
         gather3.Connect("inproc://test-scatter-gather2");

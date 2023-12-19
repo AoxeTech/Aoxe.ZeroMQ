@@ -2,7 +2,12 @@
 
 class Program
 {
-    public static readonly IList<string> AllowableCommandLineArgs = new[] {"TopicA", "TopicB", "All"};
+    public static readonly IList<string> AllowableCommandLineArgs = new[]
+    {
+        "TopicA",
+        "TopicB",
+        "All"
+    };
 
     static void Main(string[] args)
     {
