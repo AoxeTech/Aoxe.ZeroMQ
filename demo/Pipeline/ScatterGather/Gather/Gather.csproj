@@ -7,7 +7,7 @@
     </PropertyGroup>
     
     <ItemGroup>
-        <PackageReference Include="Zaabee.Jil" Version="2024.1.0" />
+        <PackageReference Include="Zaabee.Jil" Version="2024.1.2" />
     </ItemGroup>
 
     <ItemGroup>
