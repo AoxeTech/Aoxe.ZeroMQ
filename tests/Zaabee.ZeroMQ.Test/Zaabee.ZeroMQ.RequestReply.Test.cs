@@ -6,15 +6,15 @@ public partial class ZaabeeZeroMessageBusTest
     public void ReqRepTest()
     {
         using var server = new ZaabeeZeroMessageBus(
-            new Jil.Serializer(),
+            new SystemTextJson.Serializer(),
             serverBindAddress: "inproc://test-client-server"
         );
         using var clientA = new ZaabeeZeroMessageBus(
-            new Jil.Serializer(),
+            new SystemTextJson.Serializer(),
             clientConnectAddress: "inproc://test-client-server"
         );
         using var clientB = new ZaabeeZeroMessageBus(
-            new Jil.Serializer(),
+            new SystemTextJson.Serializer(),
             clientConnectAddress: "inproc://test-client-server"
         );
 

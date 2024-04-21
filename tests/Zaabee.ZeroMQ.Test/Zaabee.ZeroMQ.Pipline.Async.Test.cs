@@ -6,15 +6,15 @@ public partial class ZaabeeZeroMessageBusTest
     public async Task PipelineTestAsync()
     {
         using var scatter = new ZaabeeZeroMessageBus(
-            new Jil.Serializer(),
+            new SystemTextJson.Serializer(),
             scatterBindAddress: "inproc://test-scatter-gather-async"
         );
         using var gather0 = new ZaabeeZeroMessageBus(
-            new Jil.Serializer(),
+            new SystemTextJson.Serializer(),
             gatherConnectAddress: "inproc://test-scatter-gather-async"
         );
         using var gather1 = new ZaabeeZeroMessageBus(
-            new Jil.Serializer(),
+            new SystemTextJson.Serializer(),
             gatherConnectAddress: "inproc://test-scatter-gather-async"
         );
 

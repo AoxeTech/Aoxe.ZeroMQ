@@ -5,7 +5,7 @@ public partial class ZaabeeZeroMessageBusTest
     [Fact]
     public void OptionsTest()
     {
-        var mqHub = new ZaabeeZeroMessageBus(new Jil.Serializer());
+        var mqHub = new ZaabeeZeroMessageBus(new SystemTextJson.Serializer());
         Assert.NotNull(mqHub.ClientSocketOptions);
         Assert.NotNull(mqHub.ServerSocketOptions);
         Assert.NotNull(mqHub.ScatterSocketOptions);

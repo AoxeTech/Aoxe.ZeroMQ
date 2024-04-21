@@ -15,34 +15,34 @@ public partial class ZaabeeZeroMessageBusTest
         var topicDefault = typeof(TestModel).ToString();
 
         using var publisher = new ZaabeeZeroMessageBus(
-            new Jil.Serializer(),
+            new SystemTextJson.Serializer(),
             radioBindAddress: "inproc://test-publish-subscribe"
         );
         publisher.RadioSocketOptions.SendHighWatermark = 1000;
 
         using var subTopicA = new ZaabeeZeroMessageBus(
-            new Jil.Serializer(),
+            new SystemTextJson.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe"
         );
         subTopicA.DishJoin(topicA);
         subTopicA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
         using var subTopicB = new ZaabeeZeroMessageBus(
-            new Jil.Serializer(),
+            new SystemTextJson.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe"
         );
         subTopicB.DishJoin(topicB);
         subTopicA.DishSocketOptions.ReceiveHighWatermark = 1000;
 
         using var subTopicDefault = new ZaabeeZeroMessageBus(
-            new Jil.Serializer(),
+            new SystemTextJson.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe"
         );
         subTopicDefault.DishJoin(topicDefault);
         subTopicDefault.DishSocketOptions.ReceiveHighWatermark = 1000;
 
         using var subTopicAll = new ZaabeeZeroMessageBus(
-            new Jil.Serializer(),
+            new SystemTextJson.Serializer(),
             dishConnectAddress: "inproc://test-publish-subscribe"
         );
         subTopicAll.DishJoin(topicA);
