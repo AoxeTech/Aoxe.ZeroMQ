@@ -5,10 +5,6 @@
         <TargetFramework>net6.0</TargetFramework>
         <LangVersion>latest</LangVersion>
     </PropertyGroup>
-    
-    <ItemGroup>
-        <PackageReference Include="Zaabee.Jil" Version="2024.1.4" />
-    </ItemGroup>
 
     <ItemGroup>
         <ProjectReference Include="..\..\..\..\src\Zaabee.ZeroMQ\Zaabee.ZeroMQ.csproj" />
