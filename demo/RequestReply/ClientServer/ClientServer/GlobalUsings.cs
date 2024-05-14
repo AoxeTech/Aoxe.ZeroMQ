@@ -2,5 +2,5 @@
 
 global using System;
 global using Contracts;
-global using Zaabee.Jil;
+global using Zaabee.SystemTextJson;
 global using Zaabee.ZeroMQ;
