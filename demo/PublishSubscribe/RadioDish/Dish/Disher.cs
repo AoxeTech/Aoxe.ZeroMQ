@@ -4,7 +4,7 @@ public class Disher
 {
     public async Task Handle(IEnumerable<int> ports, IEnumerable<string> topics)
     {
-        using (var msgHub = new ZaabeeZeroMessageBus(new Serializer()))
+        using (var msgHub = new AoxeZeroMessageBus(new Serializer()))
         {
             msgHub.DishSocketOptions.ReceiveHighWatermark = 1000;
             foreach (var port in ports)
