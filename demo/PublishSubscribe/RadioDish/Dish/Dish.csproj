@@ -12,7 +12,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Aoxe.SystemTextJson" Version="2024.1.0" />
+      <PackageReference Include="Aoxe.SystemTextJson" Version="2024.1.2" />
     </ItemGroup>
 
 </Project>
