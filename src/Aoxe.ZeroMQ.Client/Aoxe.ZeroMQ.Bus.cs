@@ -1,4 +1,4 @@
-namespace Aoxe.ZeroMQ;
+namespace Aoxe.ZeroMQ.Client;
 
 public partial class AoxeZeroMessageBus : IAoxeZeroMessageBus
 {
@@ -10,6 +10,17 @@ public partial class AoxeZeroMessageBus : IAoxeZeroMessageBus
     private readonly GatherSocket _gatherSocket = new();
     private readonly RadioSocket _radioSocket = new();
     private readonly DishSocket _dishSocket = new();
+
+    public AoxeZeroMessageBus(AoxeZeroMqOptions options)
+        : this(
+            options.Serializer,
+            options.ServerBindAddress,
+            options.ClientConnectAddress,
+            options.ScatterBindAddress,
+            options.GatherConnectAddress,
+            options.RadioBindAddress,
+            options.DishConnectAddress
+        ) { }
 
     public AoxeZeroMessageBus(
         IBytesSerializer serializer,

@@ -1,4 +1,4 @@
-namespace Aoxe.ZeroMQ;
+namespace Aoxe.ZeroMQ.Client;
 
 public partial class AoxeZeroMessageBus
 {

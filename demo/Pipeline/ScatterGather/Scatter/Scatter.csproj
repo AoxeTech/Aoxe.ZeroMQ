@@ -7,12 +7,12 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\..\..\..\src\Aoxe.ZeroMQ\Aoxe.ZeroMQ.csproj" />
+        <ProjectReference Include="..\..\..\..\src\Aoxe.ZeroMQ.Client\Aoxe.ZeroMQ.Client.csproj" />
         <ProjectReference Include="..\..\..\Contracts\Contracts.csproj" />
     </ItemGroup>
 
     <ItemGroup>
-      <PackageReference Include="Aoxe.SystemTextJson" Version="2024.1.2" />
+      <PackageReference Include="Aoxe.SystemTextJson" Version="2024.2.1" />
     </ItemGroup>
 
 </Project>
