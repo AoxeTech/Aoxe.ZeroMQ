@@ -4,8 +4,8 @@ public static class AoxeZeroMqServiceProviderExtensions
 {
     public static IServiceCollection AddAoxeMongo(
         this IServiceCollection services,
-        Func<AoxeZeroMqOptions> optionsFunc
-    ) => services.AddAoxeMongo(optionsFunc());
+        Func<AoxeZeroMqOptions> optionsFactory
+    ) => services.AddSingleton<IAoxeZeroMessageBus>(new AoxeZeroMessageBus(optionsFactory));
 
     public static IServiceCollection AddAoxeMongo(
         this IServiceCollection services,

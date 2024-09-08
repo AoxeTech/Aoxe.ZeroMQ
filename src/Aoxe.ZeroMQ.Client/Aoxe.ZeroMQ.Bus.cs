@@ -11,6 +11,9 @@ public partial class AoxeZeroMessageBus : IAoxeZeroMessageBus
     private readonly RadioSocket _radioSocket = new();
     private readonly DishSocket _dishSocket = new();
 
+    public AoxeZeroMessageBus(Func<AoxeZeroMqOptions> optionsFactory)
+        : this(optionsFactory()) { }
+
     public AoxeZeroMessageBus(AoxeZeroMqOptions options)
         : this(
             options.Serializer,
