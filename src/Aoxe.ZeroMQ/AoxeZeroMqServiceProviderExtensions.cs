@@ -2,17 +2,17 @@
 
 public static class AoxeZeroMqServiceProviderExtensions
 {
-    public static IServiceCollection AddAoxeMongo(
+    public static IServiceCollection AddAoxeZeroMq(
         this IServiceCollection services,
         Func<AoxeZeroMqOptions> optionsFactory
     ) => services.AddSingleton<IAoxeZeroMessageBus>(new AoxeZeroMessageBus(optionsFactory));
 
-    public static IServiceCollection AddAoxeMongo(
+    public static IServiceCollection AddAoxeZeroMq(
         this IServiceCollection services,
         AoxeZeroMqOptions options
     ) => services.AddSingleton<IAoxeZeroMessageBus>(new AoxeZeroMessageBus(options));
 
-    public static IServiceCollection AddAoxeMongo(
+    public static IServiceCollection AddAoxeZeroMq(
         this IServiceCollection services,
         IBytesSerializer serializer,
         string? serverBindAddress = null,
