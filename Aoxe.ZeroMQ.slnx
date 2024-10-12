@@ -1,0 +1,54 @@
+﻿<Solution>
+  <Folder Name="/demo/">
+    <Project Path="demo\Contracts\Contracts.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/demo/Pair/">
+    <Project Path="demo\Pair\PairClient\PairClient.csproj" Type="Classic C#" />
+    <Project Path="demo\Pair\PairServer\PairServer.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/demo/Pipeline/" />
+  <Folder Name="/demo/Pipeline/PushPull/">
+    <Project Path="demo\Pipeline\PushPull\Puller\Puller.csproj" Type="Classic C#" />
+    <Project Path="demo\Pipeline\PushPull\Pusher\Pusher.csproj" Type="Classic C#" />
+    <Project Path="demo\Pipeline\PushPull\Sink\Sink.csproj" Type="Classic C#" />
+    <Project Path="demo\Pipeline\PushPull\Ventilator\Ventilator.csproj" Type="Classic C#" />
+    <Project Path="demo\Pipeline\PushPull\Worker\Worker.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/demo/Pipeline/ScatterGather/">
+    <Project Path="demo\Pipeline\ScatterGather\Gather\Gather.csproj" Type="Classic C#" />
+    <Project Path="demo\Pipeline\ScatterGather\ScatterGather\ScatterGather.csproj" Type="Classic C#" />
+    <Project Path="demo\Pipeline\ScatterGather\Scatter\Scatter.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/demo/PublishSubscribe/" />
+  <Folder Name="/demo/PublishSubscribe/PublisherSubscriber/">
+    <Project Path="demo\PublishSubscribe\PublisherSubscriber\Publisher\Publisher.csproj" Type="Classic C#" />
+    <Project Path="demo\PublishSubscribe\PublisherSubscriber\Subscriber\Subscriber.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/demo/PublishSubscribe/RadioDish/">
+    <Project Path="demo\PublishSubscribe\RadioDish\Dish\Dish.csproj" Type="Classic C#" />
+    <Project Path="demo\PublishSubscribe\RadioDish\Radio\Radio.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/demo/PublishSubscribe/XPublisherXSubscriber/" />
+  <Folder Name="/demo/RequestReply/" />
+  <Folder Name="/demo/RequestReply/ClientServer/">
+    <Project Path="demo\RequestReply\ClientServer\ClientServer\ClientServer.csproj" Type="Classic C#" />
+    <Project Path="demo\RequestReply\ClientServer\Client\Client.csproj" Type="Classic C#" />
+    <Project Path="demo\RequestReply\ClientServer\Server\Server.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/demo/RequestReply/RequestResponse/">
+    <Project Path="demo\RequestReply\RequestResponse\Request\Request.csproj" Type="Classic C#" />
+    <Project Path="demo\RequestReply\RequestResponse\Response\Response.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/demo/RequestReply/RouterDealer/">
+    <Project Path="demo\RequestReply\RouterDealer\RouterDealer\RouterDealer.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/src/">
+    <Project Path="src\Aoxe.ZeroMQ.Abstractions\Aoxe.ZeroMQ.Abstractions.csproj" Type="Classic C#" />
+    <Project Path="src\Aoxe.ZeroMQ.Client\Aoxe.ZeroMQ.Client.csproj" Type="Classic C#" />
+    <Project Path="src\Aoxe.ZeroMQ\Aoxe.ZeroMQ.csproj" Type="Classic C#" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests\Aoxe.ZeroMQ.Test\Aoxe.ZeroMQ.Test.csproj" Type="Classic C#" />
+    <Project Path="tests\TestModels\TestModels.csproj" Type="Classic C#" />
+  </Folder>
+</Solution>
